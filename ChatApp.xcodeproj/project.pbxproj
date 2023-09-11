@@ -21,6 +21,11 @@
 		853DCDE82AAE349200FA2400 /* MessageListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853DCDE72AAE349200FA2400 /* MessageListVC.swift */; };
 		853DCDEC2AAE36E900FA2400 /* ChatUserTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853DCDEA2AAE36E900FA2400 /* ChatUserTVC.swift */; };
 		853DCDED2AAE36E900FA2400 /* ChatUserTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 853DCDEB2AAE36E900FA2400 /* ChatUserTVC.xib */; };
+		854A65A52AAEFF2700F06672 /* SendMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A65A42AAEFF2700F06672 /* SendMessageVC.swift */; };
+		854A65A82AAF059000F06672 /* MessageSentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A65A62AAF059000F06672 /* MessageSentTVC.swift */; };
+		854A65A92AAF059000F06672 /* MessageSentTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A65A72AAF059000F06672 /* MessageSentTVC.xib */; };
+		854A65AC2AAF0CDB00F06672 /* MessageRecievedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A65AA2AAF0CDB00F06672 /* MessageRecievedTVC.swift */; };
+		854A65AD2AAF0CDB00F06672 /* MessageRecievedTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A65AB2AAF0CDB00F06672 /* MessageRecievedTVC.xib */; };
 		85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +48,11 @@
 		853DCDE72AAE349200FA2400 /* MessageListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListVC.swift; sourceTree = "<group>"; };
 		853DCDEA2AAE36E900FA2400 /* ChatUserTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserTVC.swift; sourceTree = "<group>"; };
 		853DCDEB2AAE36E900FA2400 /* ChatUserTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatUserTVC.xib; sourceTree = "<group>"; };
+		854A65A42AAEFF2700F06672 /* SendMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageVC.swift; sourceTree = "<group>"; };
+		854A65A62AAF059000F06672 /* MessageSentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSentTVC.swift; sourceTree = "<group>"; };
+		854A65A72AAF059000F06672 /* MessageSentTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSentTVC.xib; sourceTree = "<group>"; };
+		854A65AA2AAF0CDB00F06672 /* MessageRecievedTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRecievedTVC.swift; sourceTree = "<group>"; };
+		854A65AB2AAF0CDB00F06672 /* MessageRecievedTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageRecievedTVC.xib; sourceTree = "<group>"; };
 		85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +111,7 @@
 				852561E72AAB15D1000D5AEA /* Auth */,
 				852561E12AAB0B21000D5AEA /* GetStartedVC.swift */,
 				852561E32AAB14C3000D5AEA /* BaseViewController.swift */,
+				854A65A42AAEFF2700F06672 /* SendMessageVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -134,6 +145,10 @@
 			children = (
 				853DCDEA2AAE36E900FA2400 /* ChatUserTVC.swift */,
 				853DCDEB2AAE36E900FA2400 /* ChatUserTVC.xib */,
+				854A65A62AAF059000F06672 /* MessageSentTVC.swift */,
+				854A65A72AAF059000F06672 /* MessageSentTVC.xib */,
+				854A65AA2AAF0CDB00F06672 /* MessageRecievedTVC.swift */,
+				854A65AB2AAF0CDB00F06672 /* MessageRecievedTVC.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -223,10 +238,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854A65AD2AAF0CDB00F06672 /* MessageRecievedTVC.xib in Resources */,
 				853DCDED2AAE36E900FA2400 /* ChatUserTVC.xib in Resources */,
 				852561D92AAB05FF000D5AEA /* LaunchScreen.storyboard in Resources */,
 				852561D62AAB05FF000D5AEA /* Assets.xcassets in Resources */,
 				852561D42AAB05FE000D5AEA /* Main.storyboard in Resources */,
+				854A65A92AAF059000F06672 /* MessageSentTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,12 +300,15 @@
 				853DCDE82AAE349200FA2400 /* MessageListVC.swift in Sources */,
 				852561E42AAB14C3000D5AEA /* BaseViewController.swift in Sources */,
 				852561EC2AAB164E000D5AEA /* GradientButton.swift in Sources */,
+				854A65A52AAEFF2700F06672 /* SendMessageVC.swift in Sources */,
 				852561E92AAB15E6000D5AEA /* SignupUserNameVC.swift in Sources */,
 				852561D12AAB05FE000D5AEA /* ViewController.swift in Sources */,
 				853DCDEC2AAE36E900FA2400 /* ChatUserTVC.swift in Sources */,
+				854A65AC2AAF0CDB00F06672 /* MessageRecievedTVC.swift in Sources */,
 				852561E22AAB0B21000D5AEA /* GetStartedVC.swift in Sources */,
 				852561CD2AAB05FE000D5AEA /* AppDelegate.swift in Sources */,
 				852561CF2AAB05FE000D5AEA /* SceneDelegate.swift in Sources */,
+				854A65A82AAF059000F06672 /* MessageSentTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
