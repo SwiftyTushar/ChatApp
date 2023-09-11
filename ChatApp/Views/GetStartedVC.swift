@@ -17,6 +17,7 @@ class GetStartedVC: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.title = ""
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     @IBAction func getStartedBtnAction(){

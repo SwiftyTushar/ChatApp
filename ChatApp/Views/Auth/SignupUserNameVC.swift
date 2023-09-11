@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignupUserNameVC: UIViewController {
+class SignupUserNameVC: BaseViewController {
     
     @IBOutlet weak var profilePicImg:UIImageView!
     @IBOutlet weak var tfName:UITextField!
@@ -23,6 +23,10 @@ class SignupUserNameVC: UIViewController {
         imgPicker.sourceType = .photoLibrary
         
         self.present(imgPicker, animated: true)
+    }
+    @IBAction func onConinueClicked(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MessageListVC") as! MessageListVC
+        navigationController?.pushViewController(vc, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
