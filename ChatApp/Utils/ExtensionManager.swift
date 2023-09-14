@@ -44,3 +44,19 @@ extension UISearchBar
         searchTextField.textColor = color
     }
 }
+extension String {
+    func isValidEmail() -> Bool {
+        let emailRegex = #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
+        
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: self)
+    }
+    func isValidPassword() -> Bool {
+        let minLength = 8
+        let containsUppercase = self.rangeOfCharacter(from: .uppercaseLetters) != nil
+        let containsLowercase = self.rangeOfCharacter(from: .lowercaseLetters) != nil
+        let containsDigit = self.rangeOfCharacter(from: .decimalDigits) != nil
+        let containsSpecialCharacter = self.rangeOfCharacter(from: .punctuationCharacters) != nil
+        return self.count >= minLength && containsUppercase && containsLowercase && containsDigit && containsSpecialCharacter
+    }
+}
