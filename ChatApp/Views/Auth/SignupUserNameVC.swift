@@ -15,7 +15,7 @@ class SignupUserNameVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Your profile"
+        title = ""
         profilePicImg.isUserInteractionEnabled = true
         profilePicImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onProfileClicked)))
     }
@@ -26,6 +26,10 @@ class SignupUserNameVC: BaseViewController {
     }
     @IBAction func onConinueClicked(){
         let vc = storyboard?.instantiateViewController(withIdentifier: "MessageListVC") as! MessageListVC
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func loginAction(){
+        let vc = LoginVC(nibName: "LoginVC", bundle: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {

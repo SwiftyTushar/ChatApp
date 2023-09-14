@@ -26,6 +26,12 @@
 		854A65A92AAF059000F06672 /* MessageSentTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A65A72AAF059000F06672 /* MessageSentTVC.xib */; };
 		854A65AC2AAF0CDB00F06672 /* MessageRecievedTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A65AA2AAF0CDB00F06672 /* MessageRecievedTVC.swift */; };
 		854A65AD2AAF0CDB00F06672 /* MessageRecievedTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A65AB2AAF0CDB00F06672 /* MessageRecievedTVC.xib */; };
+		854D20AA2AB354960073F5D3 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D20A82AB354960073F5D3 /* LoginVC.swift */; };
+		854D20AB2AB354960073F5D3 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854D20A92AB354960073F5D3 /* LoginVC.xib */; };
+		854D20AD2AB3582E0073F5D3 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D20AC2AB3582E0073F5D3 /* APICaller.swift */; };
+		854D20B12AB35BEC0073F5D3 /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D20B02AB35BEC0073F5D3 /* LoginModels.swift */; };
+		854D20B42AB35EDB0073F5D3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D20B32AB35EDB0073F5D3 /* LoginViewModel.swift */; };
+		854D20B62AB364DD0073F5D3 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D20B52AB364DD0073F5D3 /* Alert.swift */; };
 		85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +59,12 @@
 		854A65A72AAF059000F06672 /* MessageSentTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSentTVC.xib; sourceTree = "<group>"; };
 		854A65AA2AAF0CDB00F06672 /* MessageRecievedTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRecievedTVC.swift; sourceTree = "<group>"; };
 		854A65AB2AAF0CDB00F06672 /* MessageRecievedTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageRecievedTVC.xib; sourceTree = "<group>"; };
+		854D20A82AB354960073F5D3 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		854D20A92AB354960073F5D3 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		854D20AC2AB3582E0073F5D3 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		854D20B02AB35BEC0073F5D3 /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		854D20B32AB35EDB0073F5D3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		854D20B52AB364DD0073F5D3 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +101,8 @@
 		852561CB2AAB05FE000D5AEA /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				854D20B22AB35ECB0073F5D3 /* ViewModels */,
+				854D20AF2AB35BE40073F5D3 /* Models */,
 				853DCDE92AAE36CC00FA2400 /* Cells */,
 				85A9F7442AAE1496000F0048 /* Utils */,
 				852561EA2AAB163E000D5AEA /* CustomViews */,
@@ -119,7 +133,9 @@
 		852561E72AAB15D1000D5AEA /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				854D20AE2AB35BCC0073F5D3 /* xibs */,
 				852561E82AAB15E6000D5AEA /* SignupUserNameVC.swift */,
+				854D20A82AB354960073F5D3 /* LoginVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -153,10 +169,36 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		854D20AE2AB35BCC0073F5D3 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+				854D20A92AB354960073F5D3 /* LoginVC.xib */,
+			);
+			path = xibs;
+			sourceTree = "<group>";
+		};
+		854D20AF2AB35BE40073F5D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				854D20B02AB35BEC0073F5D3 /* LoginModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		854D20B22AB35ECB0073F5D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				854D20B32AB35EDB0073F5D3 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		85A9F7442AAE1496000F0048 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */,
+				854D20AC2AB3582E0073F5D3 /* APICaller.swift */,
+				854D20B52AB364DD0073F5D3 /* Alert.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -238,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854D20AB2AB354960073F5D3 /* LoginVC.xib in Resources */,
 				854A65AD2AAF0CDB00F06672 /* MessageRecievedTVC.xib in Resources */,
 				853DCDED2AAE36E900FA2400 /* ChatUserTVC.xib in Resources */,
 				852561D92AAB05FF000D5AEA /* LaunchScreen.storyboard in Resources */,
@@ -296,18 +339,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				854D20B62AB364DD0073F5D3 /* Alert.swift in Sources */,
 				85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */,
 				853DCDE82AAE349200FA2400 /* MessageListVC.swift in Sources */,
+				854D20AA2AB354960073F5D3 /* LoginVC.swift in Sources */,
 				852561E42AAB14C3000D5AEA /* BaseViewController.swift in Sources */,
 				852561EC2AAB164E000D5AEA /* GradientButton.swift in Sources */,
 				854A65A52AAEFF2700F06672 /* SendMessageVC.swift in Sources */,
 				852561E92AAB15E6000D5AEA /* SignupUserNameVC.swift in Sources */,
 				852561D12AAB05FE000D5AEA /* ViewController.swift in Sources */,
 				853DCDEC2AAE36E900FA2400 /* ChatUserTVC.swift in Sources */,
+				854D20B12AB35BEC0073F5D3 /* LoginModels.swift in Sources */,
+				854D20B42AB35EDB0073F5D3 /* LoginViewModel.swift in Sources */,
 				854A65AC2AAF0CDB00F06672 /* MessageRecievedTVC.swift in Sources */,
 				852561E22AAB0B21000D5AEA /* GetStartedVC.swift in Sources */,
 				852561CD2AAB05FE000D5AEA /* AppDelegate.swift in Sources */,
 				852561CF2AAB05FE000D5AEA /* SceneDelegate.swift in Sources */,
+				854D20AD2AB3582E0073F5D3 /* APICaller.swift in Sources */,
 				854A65A82AAF059000F06672 /* MessageSentTVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
