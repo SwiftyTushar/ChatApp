@@ -8,7 +8,7 @@
 import Foundation
 
 struct LoginRequest:Encodable{
-    var email,password:String
+    var email,password:String?
 }
 
 struct LoginResponse:Decodable{

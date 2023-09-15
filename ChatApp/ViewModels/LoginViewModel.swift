@@ -10,7 +10,7 @@ import Foundation
 
 class LoginViewModel{
     
-    var request = LoginRequest(email: "", password: "")
+    var request = LoginRequest()
     
     func login(completion:@escaping(LoginResponse?,String?) -> Void){
         if validated(){
@@ -22,6 +22,6 @@ class LoginViewModel{
         }
     }
     func validated() -> Bool{
-        return (request.email.isValidEmail() ?? false) && (request.password.isValidPassword() ?? false)
+        return (request.email?.isValidEmail() ?? false) && (request.password?.isValidPassword() ?? false)
     }
 }

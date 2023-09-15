@@ -11,6 +11,10 @@ class SignupUserNameVC: BaseViewController {
     
     @IBOutlet weak var profilePicImg:UIImageView!
     @IBOutlet weak var tfName:UITextField!
+    @IBOutlet weak var tfEmail:UITextField!
+    @IBOutlet weak var tfPassword:UITextField!
+    @IBOutlet weak var tfConfirmPassword:UITextField!
+    
     private let imgPicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -25,8 +29,23 @@ class SignupUserNameVC: BaseViewController {
         self.present(imgPicker, animated: true)
     }
     @IBAction func onConinueClicked(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "MessageListVC") as! MessageListVC
-        navigationController?.pushViewController(vc, animated: true)
+        let viewModel = SignupViewModel()
+        
+        viewModel.request.name = tfName.text
+        viewModel.request.email = tfEmail.text
+        viewModel.request.password = tfPassword.text
+        viewModel.request.confirmPassword = tfConfirmPassword.text
+        
+        viewModel.signup {[weak self] success in
+            if success{
+                DispatchQueue.main.async {
+                    if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "MessageListVC"){
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            }
+        }
+        
     }
     @IBAction func loginAction(){
         let vc = LoginVC(nibName: "LoginVC", bundle: nil)

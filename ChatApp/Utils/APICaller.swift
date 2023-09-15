@@ -9,6 +9,7 @@ import Foundation
 
 enum URLType:String{
     case login = "user/login"
+    case signup = "user/signup"
 }
 enum HTTPMethod:String{
     case get = "get"

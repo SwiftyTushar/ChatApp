@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MessageListVC: UIViewController {
+class MessageListVC: BaseViewController {
     
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var searchBar:UISearchBar!
