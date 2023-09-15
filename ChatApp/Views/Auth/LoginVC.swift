@@ -10,13 +10,13 @@ import UIKit
 class LoginVC: UIViewController {
     @IBOutlet weak var tfEmail:UITextField!
     @IBOutlet weak var tfPassword:UITextField!
-    let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     @IBAction func loginAction(){
+        let viewModel = LoginViewModel()
         viewModel.request.email = tfEmail.text ?? ""
         viewModel.request.password = tfPassword.text ?? ""
         viewModel.login { loginResponse, error in

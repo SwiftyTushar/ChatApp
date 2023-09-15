@@ -97,6 +97,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="kRC-4m-8xG"/>
                                         </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -108,6 +109,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="igR-Hq-Ab9">
                                         <rect key="frame" x="0.0" y="75" width="353" height="55"/>
                                         <color key="backgroundColor" name="textFieldBackground"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
@@ -119,8 +121,9 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wmT-3x-zHz">
                                         <rect key="frame" x="0.0" y="150" width="353" height="55"/>
                                         <color key="backgroundColor" name="textFieldBackground"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                 <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -130,8 +133,9 @@
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4V-Wa-jCa">
                                         <rect key="frame" x="0.0" y="225" width="353" height="55"/>
                                         <color key="backgroundColor" name="textFieldBackground"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                                 <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,7 +197,10 @@
                     </view>
                     <connections>
                         <outlet property="profilePicImg" destination="cDu-Pn-WkW" id="gLb-mC-5Bp"/>
+                        <outlet property="tfConfirmPassword" destination="k4V-Wa-jCa" id="UnX-sT-BlG"/>
+                        <outlet property="tfEmail" destination="igR-Hq-Ab9" id="Fxl-Ja-NSE"/>
                         <outlet property="tfName" destination="cZv-cA-mVq" id="usr-gv-HzW"/>
+                        <outlet property="tfPassword" destination="wmT-3x-zHz" id="p8A-U2-WR5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hnb-wi-2zB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -379,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="4613" y="1"/>
         </scene>
-        <!--View Controller-->
+        <!--Splash View Controller-->
         <scene sceneID="IQh-vz-0Ej">
             <objects>
-                <viewController id="Atr-q6-bxr" customClass="ViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Atr-q6-bxr" customClass="SplashViewController" customModule="ChatApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fUI-7w-jWw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
