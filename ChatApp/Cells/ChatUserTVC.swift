@@ -11,4 +11,5 @@ class ChatUserTVC: UITableViewCell {
     @IBOutlet weak var usernameLbl:UILabel!
     @IBOutlet weak var lastMsgLbl:UILabel!
     @IBOutlet weak var profilePicImg:UIImageView!
+    @IBOutlet weak var timeLbl:UILabel!
 }

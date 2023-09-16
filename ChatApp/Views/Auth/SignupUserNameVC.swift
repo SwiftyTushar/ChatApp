@@ -39,7 +39,7 @@ class SignupUserNameVC: BaseViewController {
         viewModel.signup {[weak self] success in
             if success{
                 DispatchQueue.main.async {
-                    if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "MessageListVC"){
+                    if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "Tabbar"){
                         self?.navigationController?.pushViewController(vc, animated: true)
                     }
                 }

@@ -21,8 +21,8 @@ class GetStartedVC: BaseViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     @IBAction func getStartedBtnAction(){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SignupUserNameVC") as! SignupUserNameVC
-        navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "Tabbar")
+        navigationController?.pushViewController(vc!, animated: true)
     }
 
 }

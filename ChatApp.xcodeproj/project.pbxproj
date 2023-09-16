@@ -25,7 +25,6 @@
 		8540FE162AB41DF4006697FA /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8540FE152AB41DF4006697FA /* SignupViewModel.swift */; };
 		8540FE182AB41E5D006697FA /* SignupModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8540FE172AB41E5D006697FA /* SignupModels.swift */; };
 		8540FE1C2AB42F58006697FA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8540FE1A2AB42F58006697FA /* SearchViewController.swift */; };
-		8540FE1D2AB42F58006697FA /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8540FE1B2AB42F58006697FA /* SearchViewController.xib */; };
 		854A65A52AAEFF2700F06672 /* SendMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A65A42AAEFF2700F06672 /* SendMessageVC.swift */; };
 		854A65A82AAF059000F06672 /* MessageSentTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854A65A62AAF059000F06672 /* MessageSentTVC.swift */; };
 		854A65A92AAF059000F06672 /* MessageSentTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854A65A72AAF059000F06672 /* MessageSentTVC.xib */; };
@@ -63,7 +62,6 @@
 		8540FE152AB41DF4006697FA /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		8540FE172AB41E5D006697FA /* SignupModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupModels.swift; sourceTree = "<group>"; };
 		8540FE1A2AB42F58006697FA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		8540FE1B2AB42F58006697FA /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		854A65A42AAEFF2700F06672 /* SendMessageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageVC.swift; sourceTree = "<group>"; };
 		854A65A62AAF059000F06672 /* MessageSentTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSentTVC.swift; sourceTree = "<group>"; };
 		854A65A72AAF059000F06672 /* MessageSentTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSentTVC.xib; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 		853DCDE62AAE347800FA2400 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				8540FE192AB42F3F006697FA /* xibs */,
 				854A65A42AAEFF2700F06672 /* SendMessageVC.swift */,
 				853DCDE72AAE349200FA2400 /* MessageListVC.swift */,
 				8540FE1A2AB42F58006697FA /* SearchViewController.swift */,
@@ -178,14 +175,6 @@
 				854A65AB2AAF0CDB00F06672 /* MessageRecievedTVC.xib */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		8540FE192AB42F3F006697FA /* xibs */ = {
-			isa = PBXGroup;
-			children = (
-				8540FE1B2AB42F58006697FA /* SearchViewController.xib */,
-			);
-			path = xibs;
 			sourceTree = "<group>";
 		};
 		854D20AE2AB35BCC0073F5D3 /* xibs */ = {
@@ -309,7 +298,6 @@
 				852561D92AAB05FF000D5AEA /* LaunchScreen.storyboard in Resources */,
 				852561D62AAB05FF000D5AEA /* Assets.xcassets in Resources */,
 				852561D42AAB05FE000D5AEA /* Main.storyboard in Resources */,
-				8540FE1D2AB42F58006697FA /* SearchViewController.xib in Resources */,
 				854A65A92AAF059000F06672 /* MessageSentTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
