@@ -16,8 +16,8 @@ class SplashViewController: BaseViewController {
         super.viewDidAppear(animated)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2){
             if AuthManager.shared.authenticated(){
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "MessageListVC") as! MessageListVC
-                self.navigationController?.pushViewController(vc, animated: true)
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Tabbar")
+                self.navigationController?.pushViewController(vc!, animated: true)
             } else {
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "GetStartedVC") as! GetStartedVC
                 self.navigationController?.pushViewController(vc, animated: true)

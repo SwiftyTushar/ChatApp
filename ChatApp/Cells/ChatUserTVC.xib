@@ -66,6 +66,7 @@
             <connections>
                 <outlet property="lastMsgLbl" destination="rqZ-oL-BRZ" id="IpL-9S-VaI"/>
                 <outlet property="profilePicImg" destination="66u-IE-HKv" id="6F1-0J-L1n"/>
+                <outlet property="timeLbl" destination="lM3-YU-DQQ" id="vB2-31-0dC"/>
                 <outlet property="usernameLbl" destination="pBE-c4-Fgs" id="X7Z-ye-4UL"/>
             </connections>
             <point key="canvasLocation" x="161.06870229007632" y="29.929577464788736"/>

@@ -16,7 +16,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print("Token ---- \(AuthManager.shared.getToken())")
-        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared().isEnabled = false
+        let navigationBarAppearance = UINavigationBar.appearance()
+           navigationBarAppearance.barTintColor = UIColor.white // Light mode background color
+           navigationBarAppearance.tintColor = UIColor.white // Light mode text color
+           
+           if #available(iOS 13.0, *) {
+               // Customize for dark mode (iOS 13 and later)
+               let darkModeNavigationBarAppearance = UINavigationBarAppearance()
+               darkModeNavigationBarAppearance.backgroundColor = UIColor.black // Dark mode background color
+               darkModeNavigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Dark mode text color
+               
+               navigationBarAppearance.standardAppearance = darkModeNavigationBarAppearance
+               navigationBarAppearance.scrollEdgeAppearance = darkModeNavigationBarAppearance
+           }
         return true
     }
 

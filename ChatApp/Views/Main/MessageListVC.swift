@@ -14,6 +14,7 @@ class MessageListVC: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Chats"
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.setPlaceholderTextColorTo(color: .lightGray)
@@ -22,7 +23,7 @@ class MessageListVC: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        tabBarController?.tabBar.isHidden = false
     }
 }
 //MARK:
@@ -40,6 +41,7 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SendMessageVC") as! SendMessageVC
+        tabBarController?.tabBar.isHidden = true
         navigationController?.pushViewController(vc, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
