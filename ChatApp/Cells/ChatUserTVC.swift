@@ -12,4 +12,9 @@ class ChatUserTVC: UITableViewCell {
     @IBOutlet weak var lastMsgLbl:UILabel!
     @IBOutlet weak var profilePicImg:UIImageView!
     @IBOutlet weak var timeLbl:UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        profilePicImg.layer.cornerRadius = profilePicImg.frame.height/2
+    }
 }
