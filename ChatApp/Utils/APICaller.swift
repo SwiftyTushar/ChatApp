@@ -11,6 +11,7 @@ enum URLType:String{
     case login = "user/login"
     case signup = "user/signup"
     case search = "user?search="
+    case getChats = "chat"
 }
 enum HTTPMethod:String{
     case get = "get"

@@ -40,6 +40,9 @@
 		85A7510B2AB5D22A008CD36A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A7510A2AB5D22A008CD36A /* SearchViewModel.swift */; };
 		85A7510D2AB5D25E008CD36A /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A7510C2AB5D25E008CD36A /* SearchModels.swift */; };
 		85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */; };
+		85EA34682AB69A3100A4A02B /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA34672AB69A3100A4A02B /* ChatListViewModel.swift */; };
+		85EA346A2AB69DD400A4A02B /* ChatListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA34692AB69DD400A4A02B /* ChatListModels.swift */; };
+		85EA346C2AB6A3B900A4A02B /* CTAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA346B2AB6A3B900A4A02B /* CTAppearance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +83,9 @@
 		85A7510A2AB5D22A008CD36A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		85A7510C2AB5D25E008CD36A /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
+		85EA34672AB69A3100A4A02B /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		85EA34692AB69DD400A4A02B /* ChatListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListModels.swift; sourceTree = "<group>"; };
+		85EA346B2AB6A3B900A4A02B /* CTAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +212,7 @@
 				854D20B02AB35BEC0073F5D3 /* LoginModels.swift */,
 				8540FE172AB41E5D006697FA /* SignupModels.swift */,
 				85A7510C2AB5D25E008CD36A /* SearchModels.swift */,
+				85EA34692AB69DD400A4A02B /* ChatListModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -216,6 +223,7 @@
 				854D20B32AB35EDB0073F5D3 /* LoginViewModel.swift */,
 				8540FE152AB41DF4006697FA /* SignupViewModel.swift */,
 				85A7510A2AB5D22A008CD36A /* SearchViewModel.swift */,
+				85EA34672AB69A3100A4A02B /* ChatListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -228,6 +236,7 @@
 				854D20AC2AB3582E0073F5D3 /* APICaller.swift */,
 				854D20B52AB364DD0073F5D3 /* Alert.swift */,
 				8540FE132AB41694006697FA /* AuthManager.swift */,
+				85EA346B2AB6A3B900A4A02B /* CTAppearance.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -371,12 +380,14 @@
 			files = (
 				854D20B62AB364DD0073F5D3 /* Alert.swift in Sources */,
 				85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */,
+				85EA34682AB69A3100A4A02B /* ChatListViewModel.swift in Sources */,
 				853DCDE82AAE349200FA2400 /* MessageListVC.swift in Sources */,
 				854D20AA2AB354960073F5D3 /* LoginVC.swift in Sources */,
 				852561E42AAB14C3000D5AEA /* BaseViewController.swift in Sources */,
 				852561EC2AAB164E000D5AEA /* GradientButton.swift in Sources */,
 				8540FE162AB41DF4006697FA /* SignupViewModel.swift in Sources */,
 				854A65A52AAEFF2700F06672 /* SendMessageVC.swift in Sources */,
+				85EA346A2AB69DD400A4A02B /* ChatListModels.swift in Sources */,
 				852561E92AAB15E6000D5AEA /* SignupUserNameVC.swift in Sources */,
 				852561D12AAB05FE000D5AEA /* SplashViewController.swift in Sources */,
 				853DCDEC2AAE36E900FA2400 /* ChatUserTVC.swift in Sources */,
@@ -387,6 +398,7 @@
 				8540FE182AB41E5D006697FA /* SignupModels.swift in Sources */,
 				854A65AC2AAF0CDB00F06672 /* MessageRecievedTVC.swift in Sources */,
 				852561E22AAB0B21000D5AEA /* GetStartedVC.swift in Sources */,
+				85EA346C2AB6A3B900A4A02B /* CTAppearance.swift in Sources */,
 				8540FE142AB41694006697FA /* AuthManager.swift in Sources */,
 				852561CD2AAB05FE000D5AEA /* AppDelegate.swift in Sources */,
 				852561CF2AAB05FE000D5AEA /* SceneDelegate.swift in Sources */,

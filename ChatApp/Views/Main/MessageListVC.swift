@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class MessageListVC: BaseViewController {
     
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var searchBar:UISearchBar!
+    private let viewModel = ChatListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,17 +26,29 @@ class MessageListVC: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = false
+        viewModel.fetchChats {[weak self] _ in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
 }
 //MARK:
 extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 500
+        return viewModel.chats.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserTVC") as? ChatUserTVC{
             cell.selectionStyle = .none
+            if viewModel.chats[indexPath.row].isGroupChat == false {
+                let user = viewModel.chats[indexPath.row].users?.first
+                cell.profilePicImg.sd_setImage(with: URL(string: user?.pic ?? ""))
+                cell.usernameLbl.text = user?.name
+                cell.timeLbl.text = CTAppearance.convertFrom(from: .dateZ, to: .standard, date: user?.updatedAt ?? "")
+                cell.lastMsgLbl.text = ""
+            }
             return cell
         }
         return UITableViewCell()
