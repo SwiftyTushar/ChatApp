@@ -7,4 +7,6 @@ target 'ChatApp' do
 
   # Pods for ChatApp
   pod 'IQKeyboardManager'
+  pod 'SDWebImage'
+  pod 'lottie-ios'
 end

@@ -286,6 +286,40 @@
                                     <outlet property="delegate" destination="XTy-mf-dcc" id="GAM-Ba-n53"/>
                                 </connections>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdS-qA-qnn">
+                                <rect key="frame" x="71.666666666666686" y="301" width="250" height="250"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4eU-bh-5hE" customClass="LottieAnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="205"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="searchResultsNotFound.json"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No users found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yf3-Zz-5hN">
+                                        <rect key="frame" x="5" y="205" width="240" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="IIu-f2-4OC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="yf3-Zz-5hN" secondAttribute="trailing" constant="5" id="6YT-sL-aOZ"/>
+                                    <constraint firstItem="yf3-Zz-5hN" firstAttribute="leading" secondItem="NdS-qA-qnn" secondAttribute="leading" constant="5" id="6v6-Ic-3aU"/>
+                                    <constraint firstItem="4eU-bh-5hE" firstAttribute="top" secondItem="NdS-qA-qnn" secondAttribute="top" id="7kT-De-j5F"/>
+                                    <constraint firstAttribute="bottom" secondItem="yf3-Zz-5hN" secondAttribute="bottom" constant="20" id="8sV-nR-dLS"/>
+                                    <constraint firstAttribute="height" constant="250" id="G4c-qG-WaN"/>
+                                    <constraint firstItem="4eU-bh-5hE" firstAttribute="leading" secondItem="NdS-qA-qnn" secondAttribute="leading" id="GeG-tx-OLY"/>
+                                    <constraint firstItem="yf3-Zz-5hN" firstAttribute="top" secondItem="4eU-bh-5hE" secondAttribute="bottom" id="XdT-YI-vOx"/>
+                                    <constraint firstAttribute="width" constant="250" id="o9J-Ax-eix"/>
+                                    <constraint firstAttribute="trailing" secondItem="4eU-bh-5hE" secondAttribute="trailing" id="zqz-N1-Shg"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wCg-v2-bER">
                                 <rect key="frame" x="0.0" y="159" width="393" height="610"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -300,15 +334,19 @@
                         <constraints>
                             <constraint firstItem="wCg-v2-bER" firstAttribute="leading" secondItem="kMc-pc-6RA" secondAttribute="leading" id="CO7-mg-bH4"/>
                             <constraint firstItem="kMc-pc-6RA" firstAttribute="bottom" secondItem="wCg-v2-bER" secondAttribute="bottom" id="HWG-GK-ud9"/>
+                            <constraint firstItem="NdS-qA-qnn" firstAttribute="centerX" secondItem="av6-Vl-8o8" secondAttribute="centerX" id="XfM-35-KGi"/>
                             <constraint firstItem="wCg-v2-bER" firstAttribute="top" secondItem="XC9-dc-aLm" secondAttribute="bottom" id="ZEV-oJ-xrh"/>
                             <constraint firstItem="XC9-dc-aLm" firstAttribute="top" secondItem="kMc-pc-6RA" secondAttribute="top" id="gG5-fN-70o"/>
                             <constraint firstItem="kMc-pc-6RA" firstAttribute="trailing" secondItem="wCg-v2-bER" secondAttribute="trailing" id="mHY-Sx-roL"/>
                             <constraint firstItem="XC9-dc-aLm" firstAttribute="trailing" secondItem="kMc-pc-6RA" secondAttribute="trailing" constant="-10" id="mnq-14-iDb"/>
                             <constraint firstItem="XC9-dc-aLm" firstAttribute="leading" secondItem="kMc-pc-6RA" secondAttribute="leading" constant="10" id="vBm-vK-LCa"/>
+                            <constraint firstItem="NdS-qA-qnn" firstAttribute="centerY" secondItem="av6-Vl-8o8" secondAttribute="centerY" id="wQq-Hp-HHc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="xIE-V3-Lyb"/>
                     <connections>
+                        <outlet property="animationParentVIew" destination="NdS-qA-qnn" id="nnM-81-Kah"/>
+                        <outlet property="animationView" destination="4eU-bh-5hE" id="HTg-tD-wiw"/>
                         <outlet property="searchBar" destination="XC9-dc-aLm" id="LB3-zN-geX"/>
                         <outlet property="tableView" destination="wCg-v2-bER" id="c0e-2j-3yf"/>
                     </connections>
