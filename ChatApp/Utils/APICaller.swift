@@ -10,6 +10,7 @@ import Foundation
 enum URLType:String{
     case login = "user/login"
     case signup = "user/signup"
+    case search = "user?search="
 }
 enum HTTPMethod:String{
     case get = "get"
@@ -24,9 +25,12 @@ class APICaller{
     private init(){}
     static let shared = APICaller()
     private let baseURL = "http://13.126.127.141/api/"
-    func request<T:Encodable,U:Decodable>(url:URLType,method:HTTPMethod,body:T,authNeeded:Bool = false,responseType:U.Type,completion:@escaping((U?,String?) -> Void)){
-        
-        guard let url = URL(string: baseURL + url.rawValue) else {completion(nil,urlNotFoundError); return}
+    func request<T:Encodable,U:Decodable>(url:URLType,method:HTTPMethod,body:T,authNeeded:Bool = false,query:String = "",responseType:U.Type,completion:@escaping((U?,String?) -> Void)){
+        var mURL = url.rawValue
+        if !query.isEmpty{
+            mURL += query
+        }
+        guard let url = URL(string: baseURL + mURL) else {completion(nil,urlNotFoundError); return}
         
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
@@ -36,9 +40,15 @@ class APICaller{
         print(body)
         let encodedData = try? JSONEncoder().encode(body)
         print("encodedData---- \(encodedData)")
-        request.httpBody = encodedData
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
+        if method != .get{
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = encodedData
+        }
+        if authNeeded{
+            request.setValue("Bearer \(AuthManager.shared.getToken())", forHTTPHeaderField: "Authorization")
+        }
+        print("======HEADERS=====")
+        print(request.allHTTPHeaderFields ?? [:])
         URLSession.shared.dataTask(with: request) { resData, response, error in
             print("====Response====")
             print(response)
