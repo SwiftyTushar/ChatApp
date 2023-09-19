@@ -19,7 +19,7 @@ class LoginVC: UIViewController {
         let viewModel = LoginViewModel()
         viewModel.request.email = tfEmail.text ?? ""
         viewModel.request.password = tfPassword.text ?? ""
-        viewModel.login { loginResponse, error in
+        viewModel.login {[weak self] loginResponse, error in
             if error != nil{
                 Alert.shared.showAlertWithOkBtn(title: "Error", message: error ?? "")
             } else {
@@ -27,7 +27,11 @@ class LoginVC: UIViewController {
                     if !(response.status ?? false){
                         Alert.shared.showAlertWithOkBtn(title: "Error", message: response.message ?? "")
                     } else {
-                        
+                        DispatchQueue.main.async {
+                            if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "Tabbar"){
+                                self?.navigationController?.pushViewController(vc, animated: true)
+                            }
+                        }
                     }
                 }
             }
