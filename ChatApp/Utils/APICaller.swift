@@ -12,6 +12,7 @@ enum URLType:String{
     case signup = "user/signup"
     case search = "user?search="
     case getChats = "chat"
+    case message = "message"
 }
 enum HTTPMethod:String{
     case get = "get"
@@ -34,6 +35,7 @@ class APICaller{
         guard let url = URL(string: baseURL + mURL) else {completion(nil,urlNotFoundError); return}
         
         var request = URLRequest(url: url)
+        request.timeoutInterval = 6.0
         request.httpMethod = method.rawValue.uppercased()
         print("=====URL======")
         print(url.absoluteString)

@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print("Token ---- \(AuthManager.shared.getToken())")
+        
         IQKeyboardManager.shared().isEnabled = false
         let navigationBarAppearance = UINavigationBar.appearance()
            navigationBarAppearance.barTintColor = UIColor.white // Light mode background color

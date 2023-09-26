@@ -4,23 +4,31 @@ PODS:
   - SDWebImage (5.18.1):
     - SDWebImage/Core (= 5.18.1)
   - SDWebImage/Core (5.18.1)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
 
 DEPENDENCIES:
   - IQKeyboardManager
   - lottie-ios
   - SDWebImage
+  - Socket.IO-Client-Swift (~> 15.2.0)
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManager
     - lottie-ios
     - SDWebImage
+    - Socket.IO-Client-Swift
+    - Starscream
 
 SPEC CHECKSUMS:
   IQKeyboardManager: b1fd66ccf7a79095bdcc4a2735231586f744216e
   lottie-ios: c69214a487e1a1465a231c1918c6ce174e2d45bc
   SDWebImage: ebdbcebc7933a45226d9313bd0118bc052ad458b
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: e83e397ab8704e7fc64213d2fb90d739a61f8336
+PODFILE CHECKSUM: a532c9175159f469fb4ece429f51e00dbcce0067
 
 COCOAPODS: 1.12.1

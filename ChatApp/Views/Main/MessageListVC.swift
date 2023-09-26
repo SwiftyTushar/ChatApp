@@ -55,6 +55,8 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SendMessageVC") as! SendMessageVC
+        //vc.chatID = viewModel.chats[indexPath.row].id ?? ""
+        vc.chatData = viewModel.chats[indexPath.row]
         tabBarController?.tabBar.isHidden = true
         navigationController?.pushViewController(vc, animated: true)
     }
