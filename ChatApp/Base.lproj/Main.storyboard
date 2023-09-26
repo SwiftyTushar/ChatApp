@@ -362,8 +362,35 @@
                     <view key="view" contentMode="scaleToFill" id="jjd-jA-9SK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BzF-Su-HP2">
+                                <rect key="frame" x="96.666666666666686" y="133" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Gjj-xc-HEO"/>
+                                    <constraint firstAttribute="height" constant="200" id="VIP-xf-Nd1"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUh-Qr-22c">
+                                <rect key="frame" x="20" y="353" width="353" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Xmb-N7-pwz"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Xmb-N7-pwz" firstAttribute="trailing" secondItem="HUh-Qr-22c" secondAttribute="trailing" constant="20" id="28v-WQ-IGH"/>
+                            <constraint firstItem="HUh-Qr-22c" firstAttribute="top" secondItem="BzF-Su-HP2" secondAttribute="bottom" constant="20" id="IjZ-Hi-dfP"/>
+                            <constraint firstItem="HUh-Qr-22c" firstAttribute="leading" secondItem="Xmb-N7-pwz" secondAttribute="leading" constant="20" id="cjc-OX-pmo"/>
+                            <constraint firstItem="BzF-Su-HP2" firstAttribute="top" secondItem="Xmb-N7-pwz" secondAttribute="top" constant="30" id="lgo-Uu-06d"/>
+                            <constraint firstItem="BzF-Su-HP2" firstAttribute="centerX" secondItem="jjd-jA-9SK" secondAttribute="centerX" id="uv6-Lm-3Cf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="aHN-cq-lVd"/>
                 </viewController>
@@ -567,6 +594,9 @@
             <point key="canvasLocation" x="9277.0992366412211" y="719.71830985915494"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4eU-bh-5hE"/>
+    </designables>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="icChatee" width="146" height="30.333333969116211"/>

@@ -10,6 +10,7 @@ import Foundation
 enum DateformatStyles: String{
     case standard = "dd/MM/yyyy"
     case dateZ = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+    case standardTime = "h:mm a"
 }
 
 class CTAppearance{

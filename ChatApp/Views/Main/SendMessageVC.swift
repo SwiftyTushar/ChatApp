@@ -13,9 +13,13 @@ class SendMessageVC: UIViewController {
     @IBOutlet weak var tfMessage:UITextField!
     @IBOutlet weak var sendMessageView:UIView!
     @IBOutlet weak var sendMessageViewBottomConstraint:NSLayoutConstraint!
+    var chatData:ChatData?
+    
+    private let viewModel = SendMessageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.delegate = self
         tableView.register(UINib(nibName: "MessageSentTVC", bundle: nil), forCellReuseIdentifier: "MessageSentTVC")
         title = "Tushar Patil"
         tableView.register(UINib(nibName: "MessageRecievedTVC", bundle: nil), forCellReuseIdentifier: "MessageRecievedTVC")
@@ -27,6 +31,10 @@ class SendMessageVC: UIViewController {
         
         // Add an observer for the keyboard becoming inactive
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        fetchPreviousMessages()
+    }
+    private func fetchPreviousMessages(){
+        viewModel.fetchMessages(chatID: chatData?.id ?? "")
     }
     @objc private func hideKeyboard(){
         tfMessage.resignFirstResponder()
@@ -75,29 +83,40 @@ class SendMessageVC: UIViewController {
 //MARK: UITableViewDelegate,UITableViewDataSource
 extension SendMessageVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return viewModel.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row % 2 == 0{
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageSentTVC") as? MessageSentTVC{
-                if indexPath.row == 0{
-                    cell.messageTV.text = "Hi!"
-                } else if indexPath.row == 2{
-                    cell.messageTV.text = "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        let data = viewModel.messages[indexPath.row]
+        if data.chat?.isGroupChat == false{
+            if data.sender?.id == chatData?.users?.first?.id{
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageRecievedTVC") as? MessageRecievedTVC{
+                    cell.messageTV.text = data.content
+                    cell.timeLbl.text = CTAppearance.convertFrom(from: .dateZ, to: .standardTime, date: data.updatedAt ?? "")
+                    return cell
                 }
-                cell.selectionStyle = .none
-                cell.timeLbl.text = "12:59 PM"
-                return cell
-            }
-        } else {
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageRecievedTVC") as? MessageRecievedTVC{
-                cell.messageTV.text = "Hello World!"
-                cell.selectionStyle = .none
-                return cell
+            } else {
+                if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageSentTVC") as? MessageSentTVC{
+                    cell.messageTV.text = data.content
+                    cell.timeLbl.text = CTAppearance.convertFrom(from: .dateZ, to: .standardTime, date: data.updatedAt ?? "")
+                    return cell
+                }
             }
         }
-        
         return UITableViewCell()
     }
+}
+//MARK: SendMessageViewModelDelegate
+extension SendMessageVC: SendMessageViewModelDelegate{
+    
+    func success() {
+        DispatchQueue.main.async {[weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    func failure(msg: String) {
+        Alert.shared.showAlertWithOkBtn(title: "Error", message: msg)
+    }
+    
 }
