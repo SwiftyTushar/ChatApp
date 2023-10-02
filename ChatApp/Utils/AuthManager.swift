@@ -14,6 +14,15 @@ class AuthManager{
     private init(){}
     private let accessTokenKey = "com.tushar.chat.AuthManager.accessTokenKey"
     private let userAuthKey = "com.tushar.chat.AuthManager.userAuthKey"
+    private let userIDKey = "com.tushar.chat.userID"
+    
+    func saveUserID(id:String){
+        UserDefaults.standard.setValue(id, forKey: userIDKey)
+    }
+    
+    func getUserID() -> String{
+        return UserDefaults.standard.string(forKey: userIDKey) ?? ""
+    }
     
     func saveToken(accessToken:String){
         guard let tokenData = accessToken.data(using: .utf8) else {return}

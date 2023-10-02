@@ -16,12 +16,16 @@ class SignupUserNameVC: BaseViewController {
     @IBOutlet weak var tfConfirmPassword:UITextField!
     
     private let imgPicker = UIImagePickerController()
+    private let viewModel = AuthViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profilePicImg.layer.cornerRadius = profilePicImg.frame.height/2
         title = ""
         profilePicImg.isUserInteractionEnabled = true
         profilePicImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onProfileClicked)))
+        imgPicker.delegate = self
+        viewModel.delegate = self
     }
     @objc func onProfileClicked(){
         imgPicker.sourceType = .photoLibrary
@@ -29,23 +33,11 @@ class SignupUserNameVC: BaseViewController {
         self.present(imgPicker, animated: true)
     }
     @IBAction func onConinueClicked(){
-        let viewModel = SignupViewModel()
-        
-        viewModel.request.name = tfName.text
-        viewModel.request.email = tfEmail.text
-        viewModel.request.password = tfPassword.text
-        viewModel.request.confirmPassword = tfConfirmPassword.text
-        
-        viewModel.signup {[weak self] success in
-            if success{
-                DispatchQueue.main.async {
-                    if let vc = self?.storyboard?.instantiateViewController(withIdentifier: "Tabbar"){
-                        self?.navigationController?.pushViewController(vc, animated: true)
-                    }
-                }
-            }
-        }
-        
+        viewModel.signupRequest.username = tfName.text
+        viewModel.signupRequest.email = tfEmail.text
+        viewModel.signupRequest.password = tfPassword.text
+        viewModel.signupRequest.confirmPasword = tfConfirmPassword.text
+        viewModel.signup()
     }
     @IBAction func loginAction(){
         let vc = LoginVC(nibName: "LoginVC", bundle: nil)
@@ -56,9 +48,24 @@ class SignupUserNameVC: BaseViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
+//MARK: AuthViewModelDelegate (DefaultViewModelDelegate)
+extension SignupUserNameVC: DefaultViewModelDelegate{
+    func success() {
+        NavigationHelper.rootToTabbar()
+    }
+    
+    func failure(msg: String) {
+        Alert.shared.showAlertWithOkBtn(title: "Error", message: msg)
+    }
+    
+}
 //MARK: UIImagePickerControllerDelegate
-extension SignupUserNameVC: UIImagePickerControllerDelegate{
+extension SignupUserNameVC: UIImagePickerControllerDelegate,UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        if let selectedImage = info[.originalImage] as? UIImage {
+            profilePicImg.image = selectedImage
+            profilePicImg.contentMode = .scaleAspectFill
+        }
+        picker.dismiss(animated: true)
     }
 }

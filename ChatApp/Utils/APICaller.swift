@@ -8,8 +8,8 @@
 import Foundation
 
 enum URLType:String{
-    case login = "user/login"
-    case signup = "user/signup"
+    case login = "auth/login"
+    case signup = "auth/signup"
     case search = "user?search="
     case getChats = "chat"
     case message = "message"
@@ -26,7 +26,7 @@ fileprivate let urlNotFoundError = "URL Not found!"
 class APICaller{
     private init(){}
     static let shared = APICaller()
-    private let baseURL = "http://13.126.127.141/api/"
+    private let baseURL = "http://localhost:3000/"
     func request<T:Encodable,U:Decodable>(url:URLType,method:HTTPMethod,body:T,authNeeded:Bool = false,query:String = "",responseType:U.Type,completion:@escaping((U?,String?) -> Void)){
         var mURL = url.rawValue
         if !query.isEmpty{

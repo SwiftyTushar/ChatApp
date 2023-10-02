@@ -13,7 +13,6 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var animationView:LottieAnimationView!
     @IBOutlet weak var animationParentVIew:UIView!
-    private let viewModel = SearchViewModel()
     private var debounceTimer:Timer?
     
     override func viewDidLoad() {
@@ -36,30 +35,19 @@ class SearchViewController: UIViewController {
         animationParentVIew.isHidden = true
     }
     private func featchSearchResult(query:String){
-        viewModel.search(query) {[weak self] _ in
-            DispatchQueue.main.async {
-                if self?.viewModel.searchResults.isEmpty == true{
-                    self?.showPlaceholderView()
-                } else {
-                    self?.showPlaceholderView()
-                    self?.tableView.reloadData()
-                }
-                
-            }
-        }
+        
     }
 
 }
 //MARK: UITableViewDelegate,UITableViewDataSource
 extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.searchResults.count
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserTVC") as? ChatUserTVC{
             cell.timeLbl.isHidden = true
-            cell.usernameLbl.text = viewModel.searchResults[indexPath.row].name
             return cell
         }
         return UITableViewCell()
