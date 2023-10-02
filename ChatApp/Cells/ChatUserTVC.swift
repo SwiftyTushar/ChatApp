@@ -15,6 +15,7 @@ class ChatUserTVC: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         profilePicImg.layer.cornerRadius = profilePicImg.frame.height/2
     }
 }

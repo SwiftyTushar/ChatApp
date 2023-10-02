@@ -13,11 +13,12 @@ class SendMessageVC: UIViewController {
     @IBOutlet weak var tfMessage:UITextField!
     @IBOutlet weak var sendMessageView:UIView!
     @IBOutlet weak var sendMessageViewBottomConstraint:NSLayoutConstraint!
+    var chatID = String()
+    private let viewModel = MessageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MessageSentTVC", bundle: nil), forCellReuseIdentifier: "MessageSentTVC")
-        title = "Tushar Patil"
         tableView.register(UINib(nibName: "MessageRecievedTVC", bundle: nil), forCellReuseIdentifier: "MessageRecievedTVC")
         sendMessageView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
         sendMessageView.layer.cornerRadius = 8
@@ -27,10 +28,12 @@ class SendMessageVC: UIViewController {
         
         // Add an observer for the keyboard becoming inactive
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        viewModel.delegate = self
         fetchPreviousMessages()
     }
     private func fetchPreviousMessages(){
-        
+        print("fetchPreviousMessages---------TUSHAR")
+        viewModel.fetchMessages(chatID: chatID)
     }
     @objc private func hideKeyboard(){
         tfMessage.resignFirstResponder()
@@ -79,10 +82,34 @@ class SendMessageVC: UIViewController {
 //MARK: UITableViewDelegate,UITableViewDataSource
 extension SendMessageVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.messages.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let data = viewModel.messages[indexPath.row]
+        if data?.sender?.id == AuthManager.shared.getUserID(){
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageSentTVC") as? MessageSentTVC{
+                cell.messageTV.text = data?.text ?? ""
+                return cell
+            }
+        } else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageRecievedTVC") as? MessageRecievedTVC{
+                cell.messageTV.text = data?.text ?? ""
+                return cell
+            }
+        }
         return UITableViewCell()
+    }
+}
+//MARK: ViewModel Delegate
+extension SendMessageVC: DefaultViewModelDelegate{
+    func success() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    func failure(msg: String) {
+        Alert.shared.showAlertWithOkBtn(title: "Error", message: msg)
     }
 }

@@ -55,7 +55,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
-                <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="VbY-t7-j9D" secondAttribute="bottom" constant="20" id="3vJ-rW-nbo"/>
                     <constraint firstAttribute="trailing" secondItem="VbY-t7-j9D" secondAttribute="trailing" constant="20" id="OjD-2y-zTl"/>
@@ -63,7 +63,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="messageTV" destination="UUY-Ix-jYK" id="b4z-2R-K1W"/>
                 <outlet property="timeLbl" destination="S8l-H4-Niv" id="JgY-nZ-Ieg"/>

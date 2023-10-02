@@ -11,8 +11,8 @@ enum URLType:String{
     case login = "auth/login"
     case signup = "auth/signup"
     case search = "user?search="
-    case getChats = "chat"
-    case message = "message"
+    case chats = "chats/"
+    case message = "messages"
 }
 enum HTTPMethod:String{
     case get = "get"
@@ -27,11 +27,21 @@ class APICaller{
     private init(){}
     static let shared = APICaller()
     private let baseURL = "http://localhost:3000/"
-    func request<T:Encodable,U:Decodable>(url:URLType,method:HTTPMethod,body:T,authNeeded:Bool = false,query:String = "",responseType:U.Type,completion:@escaping((U?,String?) -> Void)){
+    func request<T:Encodable,U:Decodable>(
+        url:URLType,
+        method:HTTPMethod,
+        body:T,
+        authNeeded:Bool = false,
+        query:String = "",
+        responseType:U.Type,
+        completion:@escaping((U?,String?) -> Void)
+    ){
         var mURL = url.rawValue
+        print("QUERY--- \(query)")
         if !query.isEmpty{
             mURL += query
         }
+        print("MYURLSEDJWOI---- \(baseURL + mURL)")
         guard let url = URL(string: baseURL + mURL) else {completion(nil,urlNotFoundError); return}
         
         var request = URLRequest(url: url)
