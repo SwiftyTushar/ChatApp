@@ -32,3 +32,12 @@ struct Recipient: Codable {
         case username
     }
 }
+//MARK: SendMessageRequest
+struct SendMessageRequest: Encodable{
+    var senderId,recipientId,text:String?
+}
+//MARK: SendMessageResponse
+struct SendMessageResponse: Decodable{
+    var message:String?
+    var chatID:String?
+}

@@ -14,10 +14,12 @@ class SendMessageVC: UIViewController {
     @IBOutlet weak var sendMessageView:UIView!
     @IBOutlet weak var sendMessageViewBottomConstraint:NSLayoutConstraint!
     var chatID = String()
+    var userID = String()
     private let viewModel = MessageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tfMessage.textColor = .white
         tableView.register(UINib(nibName: "MessageSentTVC", bundle: nil), forCellReuseIdentifier: "MessageSentTVC")
         tableView.register(UINib(nibName: "MessageRecievedTVC", bundle: nil), forCellReuseIdentifier: "MessageRecievedTVC")
         sendMessageView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
@@ -72,7 +74,9 @@ class SendMessageVC: UIViewController {
         tfMessage.becomeFirstResponder()
     }
     @IBAction func sendMessageAction(){
-        
+        viewModel.request.text = tfMessage.text
+        viewModel.request.recipientId = userID
+        viewModel.sendMessage(chatID: chatID)
     }
     @objc func backBtnAction(){
         navigationController?.popViewController(animated: true)
@@ -90,11 +94,13 @@ extension SendMessageVC: UITableViewDelegate,UITableViewDataSource{
         if data?.sender?.id == AuthManager.shared.getUserID(){
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageSentTVC") as? MessageSentTVC{
                 cell.messageTV.text = data?.text ?? ""
+                cell.timeLbl.text = CTAppearance.convertFrom(from: .dateZ, to: .standardTime, date: data?.timestamp ?? "")
                 return cell
             }
         } else {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageRecievedTVC") as? MessageRecievedTVC{
                 cell.messageTV.text = data?.text ?? ""
+                cell.timeLbl.text = CTAppearance.convertFrom(from: .dateZ, to: .standardTime, date: data?.timestamp ?? "")
                 return cell
             }
         }
@@ -105,6 +111,7 @@ extension SendMessageVC: UITableViewDelegate,UITableViewDataSource{
 extension SendMessageVC: DefaultViewModelDelegate{
     func success() {
         DispatchQueue.main.async { [weak self] in
+            self?.tfMessage.text = ""
             self?.tableView.reloadData()
         }
     }

@@ -46,11 +46,12 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SendMessageVC") as! SendMessageVC
-        vc.chatID = viewModel.chats[indexPath.row]?.id ?? ""
-        //vc.chatID = viewModel.chats[indexPath.row].id ?? ""
-        tabBarController?.tabBar.isHidden = true
-        vc.title = viewModel.chats[indexPath.row]?.userName ?? ""
+        let data = viewModel.chats[indexPath.row]
+        vc.chatID = data?.id ?? ""
+        vc.userID = data?.otherUserID ?? ""
+        vc.title = data?.userName ?? ""
         navigationController?.pushViewController(vc, animated: true)
+        tabBarController?.tabBar.isHidden = true
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
