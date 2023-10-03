@@ -18,10 +18,11 @@ struct UserChat: Codable {
     let messages: [String]?
     let latestMessage: String?
     let v: Int?
-    var userName:String?
+    var userName,otherUserID:String?
+    
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case users, messages, latestMessage,userName
+        case users, messages, latestMessage,userName,otherUserID
         case v = "__v"
     }
 }

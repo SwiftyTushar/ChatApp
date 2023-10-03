@@ -10,9 +10,10 @@ import Foundation
 enum URLType:String{
     case login = "auth/login"
     case signup = "auth/signup"
-    case search = "user?search="
+    case search = "api/users/search?query="
     case chats = "chats/"
     case message = "messages"
+    case sendMessage = "message/send-message"
 }
 enum HTTPMethod:String{
     case get = "get"

@@ -41,6 +41,8 @@
 		854D20AB2AB354960073F5D3 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 854D20A92AB354960073F5D3 /* LoginVC.xib */; };
 		854D20AD2AB3582E0073F5D3 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D20AC2AB3582E0073F5D3 /* APICaller.swift */; };
 		854D20B62AB364DD0073F5D3 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854D20B52AB364DD0073F5D3 /* Alert.swift */; };
+		855B74042ACBDB0C004AC94F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B74032ACBDB0C004AC94F /* SearchViewModel.swift */; };
+		855B74062ACBDB9E004AC94F /* SearchModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B74052ACBDB9E004AC94F /* SearchModels.swift */; };
 		858C55D02AC8990900FEA0F2 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C55CF2AC8990900FEA0F2 /* NavigationHelper.swift */; };
 		85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */; };
 		85CEB2FD2AB9C7EB006BD684 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CEB2FC2AB9C7EB006BD684 /* ProfileViewController.swift */; };
@@ -86,6 +88,8 @@
 		854D20A92AB354960073F5D3 /* LoginVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		854D20AC2AB3582E0073F5D3 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		854D20B52AB364DD0073F5D3 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		855B74032ACBDB0C004AC94F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		855B74052ACBDB9E004AC94F /* SearchModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModels.swift; sourceTree = "<group>"; };
 		858C55CF2AC8990900FEA0F2 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		85CEB2FC2AB9C7EB006BD684 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 				850BA4202ACA56C400B3F458 /* AuthViewModel.swift */,
 				850BA4272ACA8E3800B3F458 /* ChatsViewModel.swift */,
 				850BA4292ACA97B100B3F458 /* MessageViewModel.swift */,
+				855B74032ACBDB0C004AC94F /* SearchViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 				850BA4232ACA574600B3F458 /* AuthModels.swift */,
 				850BA4252ACA6BEC00B3F458 /* ChatModels.swift */,
 				850BA42B2ACA993700B3F458 /* MessageModels.swift */,
+				855B74052ACBDB9E004AC94F /* SearchModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -403,6 +409,7 @@
 				85CEB2FD2AB9C7EB006BD684 /* ProfileViewController.swift in Sources */,
 				854A65AC2AAF0CDB00F06672 /* MessageRecievedTVC.swift in Sources */,
 				852561E22AAB0B21000D5AEA /* GetStartedVC.swift in Sources */,
+				855B74042ACBDB0C004AC94F /* SearchViewModel.swift in Sources */,
 				85EA346C2AB6A3B900A4A02B /* CTAppearance.swift in Sources */,
 				850BA42C2ACA993700B3F458 /* MessageModels.swift in Sources */,
 				850BA42A2ACA97B100B3F458 /* MessageViewModel.swift in Sources */,
@@ -410,6 +417,7 @@
 				852561CD2AAB05FE000D5AEA /* AppDelegate.swift in Sources */,
 				850BA4282ACA8E3800B3F458 /* ChatsViewModel.swift in Sources */,
 				852561CF2AAB05FE000D5AEA /* SceneDelegate.swift in Sources */,
+				855B74062ACBDB9E004AC94F /* SearchModels.swift in Sources */,
 				850BA4212ACA56C400B3F458 /* AuthViewModel.swift in Sources */,
 				854D20AD2AB3582E0073F5D3 /* APICaller.swift in Sources */,
 				854A65A82AAF059000F06672 /* MessageSentTVC.swift in Sources */,

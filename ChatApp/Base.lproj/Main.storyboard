@@ -419,7 +419,7 @@
                                 <rect key="frame" x="0.0" y="758" width="393" height="60"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your message..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iu9-AM-Wd0">
-                                        <rect key="frame" x="10" y="10" width="315" height="40"/>
+                                        <rect key="frame" x="10" y="10" width="323" height="40"/>
                                         <color key="backgroundColor" name="textFieldBackground"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -430,14 +430,14 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK7-pE-yQ6">
-                                        <rect key="frame" x="333" y="10" width="40" height="40"/>
+                                        <rect key="frame" x="341" y="10" width="40" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="BIK-yj-g4B"/>
                                             <constraint firstAttribute="width" constant="40" id="YSt-wU-BYo"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="paperplane" catalog="system"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="arrow.up" catalog="system"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="20"/>
@@ -454,7 +454,7 @@
                                     <constraint firstItem="iu9-AM-Wd0" firstAttribute="top" secondItem="z0J-zn-ZeB" secondAttribute="top" constant="10" id="G36-qn-G0L"/>
                                     <constraint firstAttribute="bottom" secondItem="iu9-AM-Wd0" secondAttribute="bottom" constant="10" id="IkS-2h-cru"/>
                                     <constraint firstItem="GK7-pE-yQ6" firstAttribute="centerY" secondItem="z0J-zn-ZeB" secondAttribute="centerY" id="MQL-Au-dG9"/>
-                                    <constraint firstAttribute="trailing" secondItem="GK7-pE-yQ6" secondAttribute="trailing" constant="20" id="NZd-Hx-75Q"/>
+                                    <constraint firstAttribute="trailing" secondItem="GK7-pE-yQ6" secondAttribute="trailing" constant="12" id="NZd-Hx-75Q"/>
                                     <constraint firstItem="iu9-AM-Wd0" firstAttribute="leading" secondItem="z0J-zn-ZeB" secondAttribute="leading" constant="10" id="QdX-PD-gJG"/>
                                     <constraint firstItem="GK7-pE-yQ6" firstAttribute="leading" secondItem="iu9-AM-Wd0" secondAttribute="trailing" constant="8" id="Ywl-Qr-jak"/>
                                 </constraints>
@@ -594,18 +594,15 @@
             <point key="canvasLocation" x="9277.0992366412211" y="719.71830985915494"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="4eU-bh-5hE"/>
-    </designables>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="arrow.up" catalog="system" width="118" height="128"/>
         <image name="icChatee" width="146" height="30.333333969116211"/>
         <image name="icGetStarted" width="262" height="271"/>
         <image name="icProfilePic" width="40" height="42"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="message" catalog="system" width="128" height="116"/>
         <image name="message.fill" catalog="system" width="128" height="114"/>
-        <image name="paperplane" catalog="system" width="128" height="119"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <namedColor name="textFieldBackground">

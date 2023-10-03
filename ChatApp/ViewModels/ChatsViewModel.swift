@@ -12,9 +12,9 @@ class ChatsViewModel{
     var chats:[UserChat?] = []
 
     func fetchChats(){
-        chats.removeAll()
         let currentUserID = AuthManager.shared.getUserID()
         APICaller.shared.request(url: .chats, method: .get, body: EmptyRequestBody.init(),query: "\(currentUserID)", responseType: ChatResponse.self) {[weak self] response, error in
+            self?.chats.removeAll()
             if error != nil{
                 self?.delegate?.failure(msg: error ?? "")
             } else {
@@ -24,6 +24,7 @@ class ChatsViewModel{
                         for user in chat?.users ?? []{
                             if user.id != AuthManager.shared.getUserID(){
                                 chatModel?.userName = user.username
+                                chatModel?.otherUserID = user.id
                                 self?.chats.append(chatModel)
                             }
                         }
