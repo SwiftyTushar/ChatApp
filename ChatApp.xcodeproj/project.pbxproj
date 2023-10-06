@@ -46,6 +46,7 @@
 		858C55D02AC8990900FEA0F2 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858C55CF2AC8990900FEA0F2 /* NavigationHelper.swift */; };
 		85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */; };
 		85CEB2FD2AB9C7EB006BD684 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CEB2FC2AB9C7EB006BD684 /* ProfileViewController.swift */; };
+		85E350A62ACC64ED000BDFBD /* ActivityIndictorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E350A52ACC64ED000BDFBD /* ActivityIndictorButton.swift */; };
 		85EA346C2AB6A3B900A4A02B /* CTAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA346B2AB6A3B900A4A02B /* CTAppearance.swift */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		858C55CF2AC8990900FEA0F2 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
 		85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		85CEB2FC2AB9C7EB006BD684 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		85E350A52ACC64ED000BDFBD /* ActivityIndictorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndictorButton.swift; sourceTree = "<group>"; };
 		85EA346B2AB6A3B900A4A02B /* CTAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAppearance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				852561EB2AAB164E000D5AEA /* GradientButton.swift */,
+				85E350A52ACC64ED000BDFBD /* ActivityIndictorButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				850BA4282ACA8E3800B3F458 /* ChatsViewModel.swift in Sources */,
 				852561CF2AAB05FE000D5AEA /* SceneDelegate.swift in Sources */,
 				855B74062ACBDB9E004AC94F /* SearchModels.swift in Sources */,
+				85E350A62ACC64ED000BDFBD /* ActivityIndictorButton.swift in Sources */,
 				850BA4212ACA56C400B3F458 /* AuthViewModel.swift in Sources */,
 				854D20AD2AB3582E0073F5D3 /* APICaller.swift in Sources */,
 				854A65A82AAF059000F06672 /* MessageSentTVC.swift in Sources */,

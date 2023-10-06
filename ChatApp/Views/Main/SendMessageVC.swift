@@ -13,6 +13,8 @@ class SendMessageVC: UIViewController {
     @IBOutlet weak var tfMessage:UITextField!
     @IBOutlet weak var sendMessageView:UIView!
     @IBOutlet weak var sendMessageViewBottomConstraint:NSLayoutConstraint!
+    @IBOutlet weak var sendButton:ActivityIndictorButton!
+    
     var chatID = String()
     var userID = String()
     private let viewModel = MessageViewModel()
@@ -34,7 +36,6 @@ class SendMessageVC: UIViewController {
         fetchPreviousMessages()
     }
     private func fetchPreviousMessages(){
-        print("fetchPreviousMessages---------TUSHAR")
         viewModel.fetchMessages(chatID: chatID)
     }
     @objc private func hideKeyboard(){
@@ -70,10 +71,13 @@ class SendMessageVC: UIViewController {
         IQKeyboardManager.shared().isEnabled = true
     }
     @objc func textFieldClicked(){
-        
         tfMessage.becomeFirstResponder()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ [weak self] in
+            self?.tableView.scrollToRow(at: IndexPath(row: (self?.viewModel.messages.count ?? 1) - 1, section: 0), at: .bottom, animated: true)
+        }
     }
     @IBAction func sendMessageAction(){
+        sendButton.showLoader()
         viewModel.request.text = tfMessage.text
         viewModel.request.recipientId = userID
         viewModel.sendMessage(chatID: chatID)
@@ -111,12 +115,16 @@ extension SendMessageVC: UITableViewDelegate,UITableViewDataSource{
 extension SendMessageVC: DefaultViewModelDelegate{
     func success() {
         DispatchQueue.main.async { [weak self] in
+            self?.sendButton.hideLoader()
             self?.tfMessage.text = ""
             self?.tableView.reloadData()
+            let scrollItem = (self?.viewModel.messages.count ?? 1) - 1
+            self?.tableView.scrollToRow(at: IndexPath(row: scrollItem, section: 0), at: .bottom, animated: true)
         }
     }
     
     func failure(msg: String) {
+        sendButton.hideLoader()
         Alert.shared.showAlertWithOkBtn(title: "Error", message: msg)
     }
 }
