@@ -10,4 +10,8 @@ import UIKit
 class MessageSentTVC: UITableViewCell {
     @IBOutlet weak var messageTV:UITextView!
     @IBOutlet weak var timeLbl:UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        selectionStyle = .none
+    }
 }

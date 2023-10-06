@@ -429,7 +429,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK7-pE-yQ6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GK7-pE-yQ6" customClass="ActivityIndictorButton" customModule="ChatApp" customModuleProvider="target">
                                         <rect key="frame" x="341" y="10" width="40" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
@@ -473,6 +473,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="sendButton" destination="GK7-pE-yQ6" id="G49-NG-xxM"/>
                         <outlet property="sendMessageView" destination="z0J-zn-ZeB" id="mhX-Gf-fNC"/>
                         <outlet property="sendMessageViewBottomConstraint" destination="bBf-8V-Rsq" id="SYf-ef-qJR"/>
                         <outlet property="tableView" destination="gOh-YH-aQb" id="Tyd-10-xe8"/>
