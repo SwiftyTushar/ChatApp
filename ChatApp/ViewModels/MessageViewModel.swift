@@ -12,12 +12,19 @@ class MessageViewModel{
     var messages:[Message?] = []
     var request = SendMessageRequest()
     
+    init() {
+        ChatSocketManager.shared.listenToRecievedMessages {[weak self] data in
+            self?.fetchMessages(chatID: data)
+        }
+    }
+    
     func sendMessage(chatID:String){
         request.senderId = AuthManager.shared.getUserID()
         APICaller.shared.request(url: .sendMessage, method: .post, body: request, responseType: SendMessageResponse.self) { [weak self] response, error in
             if error != nil{
                 self?.delegate?.failure(msg: error ?? "")
             } else {
+                ChatSocketManager.shared.emiteMessageSent(recieverID: self?.request.recipientId ?? "",message: self?.request.text ?? "",chatID: chatID)
                 self?.fetchMessages(chatID: response?.chatID ?? "")
             }
         }

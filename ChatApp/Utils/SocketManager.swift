@@ -5,59 +5,62 @@
 //  Created by Tushar Patil on 22/09/23.
 //
 import Foundation
+import SocketIO
+import JavaScriptCore
 
-class SocketManager {
-    private var webSocketTask: URLSessionWebSocketTask?
-    static let shared = SocketManager()
+class ChatSocketManager{
+    static let shared = ChatSocketManager()
     
-    init() {
-        connectToSocketServer()
-    }
+    private let manager = SocketManager(socketURL: URL(string: "http://localhost:3000/")!, config: [.log(true), .compress])
+    private var socket:SocketIOClient?
     
-    
-    private func connectToSocketServer() {
-        guard let url = URL(string: "http://13.126.127.141/api/message/") else {
-            print("Invalid URL")
-            return
-        }
-
-        let session = URLSession(configuration: .default)
-        webSocketTask = session.webSocketTask(with: url)
-
-        webSocketTask?.resume()
-
-        receiveMessages()
-    }
-
-    func send(message: String) {
-        let message = URLSessionWebSocketTask.Message.string(message)
-        webSocketTask?.send(message) { error in
-            if let error = error {
-                print("WebSocket send error: \(error)")
-            }
+    private init(){
+        socket = manager.defaultSocket
+        socket?.on("connect") { _, _ in
+            print("Socket Connected")
         }
     }
-
-    func receiveMessages() {
-        webSocketTask?.receive { [weak self] result in
-            switch result {
-            case .failure(let error):
-                print("WebSocket receive error: \(error)")
-            case .success(let message):
-                switch message {
-                case .string(let text):
-                    // Handle received text message (e.g., JSON parsing)
-                    print("Received message: \(text)")
-                default:
-                    break
+    func establishSocketConnection(){
+        socket?.connect()
+    }
+    func listenToRecievedMessages(onReceive:@escaping(String) -> Void){
+        socket?.on("\(AuthManager.shared.getUserID()) message recieved", callback: { data, _ in
+            let firstElement = data[0] as! String
+            print("TYPEODFDS---- \(firstElement)")
+            if let data = firstElement.data(using: .utf8){
+                if let dictionary = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]{
+                    onReceive(dictionary["chatID"] as? String ?? "")
+                } else {
+                    print("Recienefjewoiqjwojelse----")
                 }
-                self?.receiveMessages() // Continue listening for messages
             }
-        }
+//            if let data = firstElement.data(using: .utf8) {
+//                do {
+//                    // Deserialize the JSON data into a Swift dictionary
+//                    if let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                        // Now, 'dictionary' is a Swift dictionary containing the parsed data
+//                        print(dictionary)
+//                    }
+//                } catch {
+//                    print("Error parsing JSON: \(error)")
+//                }
+//            }
+            
+            
+            if let dataDict = data as? [[String:Any]]{
+                onReceive(dataDict.first?["chatID"] as? String ?? "")
+            } else {
+                print("Recienved msg but go nil data")
+            }
+        })
     }
-
-    func disconnect() {
-        webSocketTask?.cancel(with: .goingAway, reason: nil)
+    func emiteMessageSent(recieverID:String,message:String,chatID:String){
+        let dictionary = ["senderID":AuthManager.shared.getUserID(),"receiverID":recieverID,"message":message,"chatID":chatID]
+        if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: []){
+            let jsonStr = String(data: jsonData, encoding: .utf8)!
+            socket?.emit("new message", with: [jsonStr])
+        }
+        
     }
 }
 
