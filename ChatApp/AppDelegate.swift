@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         print("Token ---- \(AuthManager.shared.getToken())")
+        print("UserID---- \(AuthManager.shared.getUserID())")
+        ChatSocketManager.shared.establishSocketConnection()
         
         IQKeyboardManager.shared().isEnabled = false
         let navigationBarAppearance = UINavigationBar.appearance()

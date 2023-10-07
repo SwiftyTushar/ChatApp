@@ -34,6 +34,7 @@ class SendMessageVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         viewModel.delegate = self
         fetchPreviousMessages()
+        tfMessage.autocorrectionType = .no
     }
     private func fetchPreviousMessages(){
         viewModel.fetchMessages(chatID: chatID)
