@@ -73,8 +73,10 @@ class SendMessageVC: UIViewController {
     }
     @objc func textFieldClicked(){
         tfMessage.becomeFirstResponder()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ [weak self] in
-            self?.tableView.scrollToRow(at: IndexPath(row: (self?.viewModel.messages.count ?? 1) - 1, section: 0), at: .bottom, animated: true)
+        if !self.viewModel.messages.isEmpty{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ [weak self] in
+                self?.tableView.scrollToRow(at: IndexPath(row: (self?.viewModel.messages.count ?? 1) - 1, section: 0), at: .bottom, animated: true)
+            }
         }
     }
     @IBAction func sendMessageAction(){

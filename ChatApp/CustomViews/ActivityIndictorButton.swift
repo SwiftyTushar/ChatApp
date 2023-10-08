@@ -23,12 +23,16 @@ class ActivityIndictorButton: UIButton {
         indicatorView.frame = bounds
     }
     func showLoader(){
-        self.setImage(nil, for: .normal)
-        indicatorView.startAnimating()
-        indicatorView.isHidden = false
+        DispatchQueue.main.async { [weak self] in
+            self?.setImage(nil, for: .normal)
+            self?.indicatorView.startAnimating()
+            self?.indicatorView.isHidden = false
+        }
     }
     func hideLoader(){
-        self.setImage(previousImg, for: .normal)
-        indicatorView.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            self?.setImage(self?.previousImg, for: .normal)
+            self?.indicatorView.isHidden = true
+        }
     }
 }

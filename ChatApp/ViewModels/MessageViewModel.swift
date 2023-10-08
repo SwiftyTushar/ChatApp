@@ -14,6 +14,7 @@ class MessageViewModel{
     
     init() {
         ChatSocketManager.shared.listenToRecievedMessages {[weak self] data in
+            print("MessageViewModel.self------- \(data)")
             self?.fetchMessages(chatID: data)
         }
     }
