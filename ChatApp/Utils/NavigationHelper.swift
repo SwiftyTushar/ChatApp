@@ -17,5 +17,13 @@ class NavigationHelper{
             UIApplication.shared.windows.first?.rootViewController = navVC
         }
     }
+    static func rootToPeopleYouManKnow(){
+        DispatchQueue.main.async {
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Tabbar")
+            let navVC = UINavigationController(rootViewController: vc)
+            navVC.setNavigationBarHidden(true, animated: true)
+            UIApplication.shared.windows.first?.rootViewController = navVC
+        }
+    }
 }
 

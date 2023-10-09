@@ -497,7 +497,6 @@
                     <connections>
                         <segue destination="epH-uL-QeC" kind="relationship" relationship="viewControllers" id="l8W-gE-xQa"/>
                         <segue destination="JCF-WA-aR7" kind="relationship" relationship="viewControllers" id="CaW-Dg-hfs"/>
-                        <segue destination="l61-BH-v26" kind="relationship" relationship="viewControllers" id="dQe-0Y-DvQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="arc-kg-31l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -595,6 +594,9 @@
             <point key="canvasLocation" x="9277.0992366412211" y="719.71830985915494"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4eU-bh-5hE"/>
+    </designables>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="arrow.up" catalog="system" width="118" height="128"/>

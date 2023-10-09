@@ -23,6 +23,9 @@ class MessageListVC: BaseViewController {
         searchBar.setTextColor(color: .white)
         tableView.register(UINib(nibName: "ChatUserTVC", bundle: nil), forCellReuseIdentifier: "ChatUserTVC")
         viewModel.delegate = self
+        ChatSocketManager.shared.listenToChatUpdates {
+            self.viewModel.fetchChats()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,6 +43,7 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserTVC") as? ChatUserTVC{
             let data = viewModel.chats[indexPath.row]
             cell.usernameLbl.text = data?.userName
+            cell.lastMsgLbl.text = data?.lastText
             return cell
         }
         return UITableViewCell()

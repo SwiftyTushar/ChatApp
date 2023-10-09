@@ -23,6 +23,11 @@ class ChatSocketManager{
     func establishSocketConnection(){
         socket?.connect()
     }
+    func listenToChatUpdates(onReceive:@escaping () -> Void){
+        socket?.on("\(AuthManager.shared.getUserID()) chat updated", callback: { _, _ in
+            onReceive()
+        })
+    }
     func listenToRecievedMessages(onReceive:@escaping(String) -> Void){
         socket?.on("\(AuthManager.shared.getUserID()) message recieved", callback: { data, _ in
             let firstElement = data[0] as! String

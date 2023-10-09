@@ -51,7 +51,7 @@ class SignupUserNameVC: BaseViewController {
 //MARK: AuthViewModelDelegate (DefaultViewModelDelegate)
 extension SignupUserNameVC: DefaultViewModelDelegate{
     func success() {
-        NavigationHelper.rootToTabbar()
+        NavigationHelper.rootToPeopleYouManKnow()
     }
     
     func failure(msg: String) {
