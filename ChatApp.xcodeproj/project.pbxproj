@@ -48,6 +48,7 @@
 		85A9F7462AAE14A1000F0048 /* ExtensionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */; };
 		85B41EE12AD3B14300E0BD70 /* PeopleYouMayKnowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85B41EDF2AD3B14300E0BD70 /* PeopleYouMayKnowVC.swift */; };
 		85B41EE22AD3B14300E0BD70 /* PeopleYouMayKnowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85B41EE02AD3B14300E0BD70 /* PeopleYouMayKnowVC.xib */; };
+		85CE295F2AD5927B00EB963D /* MessageDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CE295E2AD5927B00EB963D /* MessageDateView.swift */; };
 		85CEB2FD2AB9C7EB006BD684 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CEB2FC2AB9C7EB006BD684 /* ProfileViewController.swift */; };
 		85E350A62ACC64ED000BDFBD /* ActivityIndictorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E350A52ACC64ED000BDFBD /* ActivityIndictorButton.swift */; };
 		85EA346C2AB6A3B900A4A02B /* CTAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA346B2AB6A3B900A4A02B /* CTAppearance.swift */; };
@@ -99,6 +100,7 @@
 		85A9F7452AAE14A1000F0048 /* ExtensionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionManager.swift; sourceTree = "<group>"; };
 		85B41EDF2AD3B14300E0BD70 /* PeopleYouMayKnowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleYouMayKnowVC.swift; sourceTree = "<group>"; };
 		85B41EE02AD3B14300E0BD70 /* PeopleYouMayKnowVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleYouMayKnowVC.xib; sourceTree = "<group>"; };
+		85CE295E2AD5927B00EB963D /* MessageDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDateView.swift; sourceTree = "<group>"; };
 		85CEB2FC2AB9C7EB006BD684 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		85E350A52ACC64ED000BDFBD /* ActivityIndictorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndictorButton.swift; sourceTree = "<group>"; };
 		85EA346B2AB6A3B900A4A02B /* CTAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTAppearance.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				852561EB2AAB164E000D5AEA /* GradientButton.swift */,
 				85E350A52ACC64ED000BDFBD /* ActivityIndictorButton.swift */,
 				8502B7592AD516490090A47A /* PlaceholderView.swift */,
+				85CE295E2AD5927B00EB963D /* MessageDateView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				85CEB2FD2AB9C7EB006BD684 /* ProfileViewController.swift in Sources */,
 				854A65AC2AAF0CDB00F06672 /* MessageRecievedTVC.swift in Sources */,
 				852561E22AAB0B21000D5AEA /* GetStartedVC.swift in Sources */,
+				85CE295F2AD5927B00EB963D /* MessageDateView.swift in Sources */,
 				855B74042ACBDB0C004AC94F /* SearchViewModel.swift in Sources */,
 				85EA346C2AB6A3B900A4A02B /* CTAppearance.swift in Sources */,
 				8502B75A2AD516490090A47A /* PlaceholderView.swift in Sources */,

@@ -93,9 +93,19 @@ class SendMessageVC: UIViewController {
 //MARK: UITableViewDelegate,UITableViewDataSource
 extension SendMessageVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.messages.count
+        return viewModel.filteredMessages[viewModel.datesArray[section]]?.count ?? 0
     }
-    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.datesArray.count
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = MessageDateView()
+        headerView.setDate(date: viewModel.datesArray[section])
+        return headerView
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = viewModel.messages[indexPath.row]
         if data?.sender?.id == AuthManager.shared.getUserID(){

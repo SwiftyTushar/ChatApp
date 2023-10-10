@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//MARK: UITextField
 extension UITextField{
    @IBInspectable var placeHolderColor: UIColor? {
         get {
@@ -17,7 +17,7 @@ extension UITextField{
         }
     }
 }
-
+//MARK: UIView
 extension UIView{
     func applyGradient(colours: [UIColor], cornerRadius: CGFloat?, startPoint: CGPoint, endPoint: CGPoint)  {
         let gradient: CAGradientLayer = CAGradientLayer()
@@ -31,6 +31,7 @@ extension UIView{
         self.layer.insertSublayer(gradient, at: 0)
     }
 }
+//MARK: UISearchBar
 extension UISearchBar
 {
     func setPlaceholderTextColorTo(color: UIColor)
@@ -44,6 +45,7 @@ extension UISearchBar
         searchTextField.textColor = color
     }
 }
+//MARK: String
 extension String {
     func isValidEmail() -> Bool {
         let emailRegex = #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
@@ -58,5 +60,25 @@ extension String {
         let containsDigit = self.rangeOfCharacter(from: .decimalDigits) != nil
         let containsSpecialCharacter = self.rangeOfCharacter(from: .punctuationCharacters) != nil
         return self.count >= minLength && containsUppercase && containsLowercase && containsDigit && containsSpecialCharacter
+    }
+}
+//MARK: Date
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
     }
 }
