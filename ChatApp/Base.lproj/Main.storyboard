@@ -243,6 +243,13 @@
                                     <outlet property="delegate" destination="h4f-qW-oMj" id="rKD-k4-Jck"/>
                                 </connections>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyc-P4-CNC" customClass="PlaceholderView" customModule="ChatApp" customModuleProvider="target">
+                                <rect key="frame" x="16" y="326" width="361" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="JcC-DK-D6Q"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="e43-ZY-6TO">
                                 <rect key="frame" x="0.0" y="179" width="393" height="590"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -252,16 +259,20 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gfp-cy-U8q" firstAttribute="top" secondItem="eUs-Fb-qc5" secondAttribute="top" id="1UK-04-S5D"/>
+                            <constraint firstItem="cyc-P4-CNC" firstAttribute="leading" secondItem="eUs-Fb-qc5" secondAttribute="leading" constant="16" id="7ED-9y-x51"/>
+                            <constraint firstItem="cyc-P4-CNC" firstAttribute="centerY" secondItem="EDm-s9-KBb" secondAttribute="centerY" id="Dlf-aO-VBu"/>
                             <constraint firstItem="gfp-cy-U8q" firstAttribute="leading" secondItem="eUs-Fb-qc5" secondAttribute="leading" constant="10" id="Q7m-du-uIk"/>
                             <constraint firstItem="e43-ZY-6TO" firstAttribute="top" secondItem="gfp-cy-U8q" secondAttribute="bottom" constant="20" id="Rqr-8Y-LPL"/>
                             <constraint firstItem="eUs-Fb-qc5" firstAttribute="bottom" secondItem="e43-ZY-6TO" secondAttribute="bottom" id="VF6-do-S2u"/>
                             <constraint firstItem="e43-ZY-6TO" firstAttribute="leading" secondItem="eUs-Fb-qc5" secondAttribute="leading" id="dpa-tT-GiI"/>
+                            <constraint firstItem="eUs-Fb-qc5" firstAttribute="trailing" secondItem="cyc-P4-CNC" secondAttribute="trailing" constant="16" id="mbS-DX-6Zj"/>
                             <constraint firstItem="eUs-Fb-qc5" firstAttribute="trailing" secondItem="e43-ZY-6TO" secondAttribute="trailing" id="o8d-Be-7KB"/>
                             <constraint firstItem="gfp-cy-U8q" firstAttribute="trailing" secondItem="eUs-Fb-qc5" secondAttribute="trailing" constant="-10" id="vBS-sV-hX3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chats" id="hpd-EO-neA"/>
                     <connections>
+                        <outlet property="placeHolder" destination="cyc-P4-CNC" id="LTG-2U-ur3"/>
                         <outlet property="searchBar" destination="gfp-cy-U8q" id="dSr-m5-Ouw"/>
                         <outlet property="tableView" destination="e43-ZY-6TO" id="M9N-Xa-GVI"/>
                     </connections>
@@ -594,9 +605,6 @@
             <point key="canvasLocation" x="9277.0992366412211" y="719.71830985915494"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="4eU-bh-5hE"/>
-    </designables>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="arrow.up" catalog="system" width="118" height="128"/>
@@ -613,6 +621,9 @@
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
