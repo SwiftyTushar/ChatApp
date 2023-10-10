@@ -21,12 +21,15 @@ class CTAppearance{
     }
     static func convertFrom(from:DateformatStyles,to:DateformatStyles,date:String) -> String{
         let formatter = DateFormatter()
-        if from == .dateZ{
-            formatter.locale = Locale(identifier: "en_US_POSIX")
-            formatter.timeZone = TimeZone(abbreviation: "UTC")
+        formatter.dateFormat = from.rawValue
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        if let fromObj = formatter.date(from: date){
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = to.rawValue
+            return outputFormatter.string(from: fromObj)
         }
-        let fromObj = formatter.date(from: date)
-        formatter.dateFormat = to.rawValue
-        return formatter.string(from: fromObj ?? Date())
+        print("convertFrom-----")
+        return ""
     }
 }
