@@ -12,6 +12,8 @@ class MessageListVC: BaseViewController {
     
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var searchBar:UISearchBar!
+    @IBOutlet weak var placeHolder:PlaceholderView!
+    
     private let viewModel = ChatsViewModel()
     
     override func viewDidLoad() {
@@ -25,6 +27,11 @@ class MessageListVC: BaseViewController {
         viewModel.delegate = self
         ChatSocketManager.shared.listenToChatUpdates {
             self.viewModel.fetchChats()
+        }
+        placeHolder.setTitleAndMessage(title: "No Chats found", message: "Search for other users and start the conversation")
+        placeHolder.addCTAButton(with: "Search")
+        placeHolder.buttonClicked = {
+            self.tabBarController?.selectedIndex = 1
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +73,8 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
 extension MessageListVC: DefaultViewModelDelegate{
     func success() {
         DispatchQueue.main.async { [weak self] in
+            self?.tableView.isHidden = self?.viewModel.chats.isEmpty ?? false
+            self?.placeHolder.isHidden = !(self?.viewModel.chats.isEmpty ?? false)
             self?.tableView.reloadData()
         }
     }
