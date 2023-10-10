@@ -11,6 +11,8 @@ class MessageViewModel{
     var delegate:DefaultViewModelDelegate?
     var messages:[Message?] = []
     var request = SendMessageRequest()
+    var filteredMessages:[Date:[Message?]] = [:]
+    var datesArray:[Date] = []
     
     init() {
         ChatSocketManager.shared.listenToRecievedMessages {[weak self] data in
@@ -44,9 +46,33 @@ class MessageViewModel{
                 if let response = response{
                     self?.messages.removeAll()
                     self?.messages = response.messages
+                    self?.filterMessages()
                     self?.delegate?.success()
                 }
             }
         }
+    }
+    private func filterMessages(){
+        guard !messages.isEmpty else {return}
+        datesArray.removeAll()
+        
+        var previousDate = CTAppearance.getDate(from: messages[0]?.timestamp ?? "")
+        filteredMessages[previousDate] = []
+        datesArray.append(previousDate)
+        
+        for message in messages {
+            let messageDate = CTAppearance.getDate(from: message?.timestamp ?? "")
+            if !CTAppearance.compareDates(firstDate: messageDate, secondDate: previousDate){
+                previousDate = messageDate
+                datesArray.append(previousDate)
+            }
+            if filteredMessages[previousDate] == nil{
+                datesArray.append(previousDate)
+                filteredMessages[previousDate] = []
+            } else {
+                filteredMessages[previousDate]?.append(message)
+            }
+        }
+        print("filterMessagese----- \(filteredMessages)")
     }
 }

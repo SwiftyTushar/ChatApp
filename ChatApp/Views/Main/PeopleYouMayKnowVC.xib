@@ -39,6 +39,9 @@
                     <buttonConfiguration key="configuration" style="plain" title="Skip">
                         <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </buttonConfiguration>
+                    <connections>
+                        <action selector="skipBtnAction" destination="-1" eventType="touchUpInside" id="PeJ-IA-MDW"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
