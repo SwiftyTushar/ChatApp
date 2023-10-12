@@ -75,7 +75,10 @@ class SendMessageVC: UIViewController {
         tfMessage.becomeFirstResponder()
         if !self.viewModel.messages.isEmpty{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){ [weak self] in
-                self?.tableView.scrollToRow(at: IndexPath(row: (self?.viewModel.messages.count ?? 1) - 1, section: 0), at: .bottom, animated: true)
+                let lastMessageDate = self!.viewModel.datesArray.last!
+                let lastMessageDateArrayCount = self!.viewModel.filteredMessages[lastMessageDate]!.count - 1
+                
+                self?.tableView.scrollToRow(at: IndexPath(row: lastMessageDateArrayCount , section: self!.viewModel.filteredMessages.count - 1), at: .bottom, animated: true)
             }
         }
     }
@@ -107,7 +110,10 @@ extension SendMessageVC: UITableViewDelegate,UITableViewDataSource{
         return 40
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let data = viewModel.messages[indexPath.row]
+        //let data = viewModel.messages[indexPath.row]
+        let mDate = viewModel.datesArray[indexPath.section]
+        let messages = viewModel.filteredMessages[mDate] ?? []
+        let data = messages[indexPath.row]
         if data?.sender?.id == AuthManager.shared.getUserID(){
             if let cell = tableView.dequeueReusableCell(withIdentifier: "MessageSentTVC") as? MessageSentTVC{
                 cell.messageTV.text = data?.text ?? ""
@@ -131,8 +137,10 @@ extension SendMessageVC: DefaultViewModelDelegate{
             self?.sendButton.hideLoader()
             self?.tfMessage.text = ""
             self?.tableView.reloadData()
-            let scrollItem = (self?.viewModel.messages.count ?? 1) - 1
-            self?.tableView.scrollToRow(at: IndexPath(row: scrollItem, section: 0), at: .bottom, animated: true)
+            let lastSection = (self?.viewModel.datesArray.count ?? 0) - 1
+            let lastMessageDate = self?.viewModel.datesArray.last ?? Date()
+            let lastSectionRow = (self?.viewModel.filteredMessages[lastMessageDate]?.count ?? 0) - 1
+            self?.tableView.scrollToRow(at: IndexPath(row: lastSectionRow, section: lastSection), at: .bottom, animated: true)
         }
     }
     

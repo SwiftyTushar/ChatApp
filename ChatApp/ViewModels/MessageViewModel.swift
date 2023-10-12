@@ -47,13 +47,13 @@ class MessageViewModel{
                     self?.messages.removeAll()
                     self?.messages = response.messages
                     self?.filterMessages()
-                    self?.delegate?.success()
                 }
             }
         }
     }
     private func filterMessages(){
         guard !messages.isEmpty else {return}
+        filteredMessages = [:]
         datesArray.removeAll()
         
         var previousDate = CTAppearance.getDate(from: messages[0]?.timestamp ?? "")
@@ -61,18 +61,27 @@ class MessageViewModel{
         datesArray.append(previousDate)
         
         for message in messages {
+            
             let messageDate = CTAppearance.getDate(from: message?.timestamp ?? "")
+            print("MessageGOTITO--- \(message?.text ?? "nil") date \(messageDate) result \(CTAppearance.compareDates(firstDate: messageDate, secondDate: previousDate))")
+            
             if !CTAppearance.compareDates(firstDate: messageDate, secondDate: previousDate){
+                print("MessageGOTITO---For ---- \(message?.text ?? "nil")")
                 previousDate = messageDate
-                datesArray.append(previousDate)
-            }
-            if filteredMessages[previousDate] == nil{
-                datesArray.append(previousDate)
-                filteredMessages[previousDate] = []
+                if filteredMessages[previousDate] == nil{
+                    filteredMessages[previousDate] = []
+                    datesArray.append(previousDate)
+                }
+                filteredMessages[previousDate]?.append(message)
             } else {
+                if filteredMessages[previousDate] == nil{
+                    filteredMessages[previousDate] = []
+                    datesArray.append(previousDate)
+                }
                 filteredMessages[previousDate]?.append(message)
             }
         }
-        print("filterMessagese----- \(filteredMessages)")
+        delegate?.success()
+        print("filterMessagese----- \(datesArray.count)")
     }
 }
