@@ -11,7 +11,13 @@ class ChatsViewModel{
     var delegate: DefaultViewModelDelegate?
     var chats:[UserChat?] = []
 
-    func fetchChats(){
+    init() {
+        ChatSocketManager.shared.listenToChatUpdates { dictionary in
+            self.fetchChats(sortWith: dictionary["chatID"] as? String ?? "")
+        }
+    }
+    
+    func fetchChats(sortWith:String = ""){
         let currentUserID = AuthManager.shared.getUserID()
         APICaller.shared.request(url: .chats, method: .get, body: EmptyRequestBody.init(),query: "\(currentUserID)", responseType: ChatResponse.self) {[weak self] response, error in
             self?.chats.removeAll()
@@ -21,11 +27,21 @@ class ChatsViewModel{
                 if let response = response{
                     for chat in response.userChats{
                         var chatModel = chat
+                        chatModel?.date = CTAppearance.getDate(from: chat?.lastMessageTime ?? "")
+                        print("GETIME---- \(CTAppearance.convertFrom(from: .dateZ, to: .standardTime, date: chatModel?.lastMessageTime ?? ""))")
                         for user in chat?.users ?? []{
                             if user.id != AuthManager.shared.getUserID(){
                                 chatModel?.userName = user.username
                                 chatModel?.otherUserID = user.id
                                 self?.chats.append(chatModel)
+                            }
+                        }
+                    }
+                    if !sortWith.isEmpty{
+                        for (index,chat) in (self?.chats ?? []).enumerated() {
+                            if sortWith == chat?.id{
+                                self?.chats.swapAt(0, index)
+                                break
                             }
                         }
                     }
