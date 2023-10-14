@@ -23,9 +23,17 @@ class ChatSocketManager{
     func establishSocketConnection(){
         socket?.connect()
     }
-    func listenToChatUpdates(onReceive:@escaping () -> Void){
-        socket?.on("\(AuthManager.shared.getUserID()) chat updated", callback: { _, _ in
-            onReceive()
+    func listenToChatUpdates(onReceive:@escaping ([String:Any]) -> Void){
+        print("listenToChatUpdatesDESDOII=====")
+        socket?.on("\(AuthManager.shared.getUserID()) chat updated", callback: { data, _ in
+            print("listenToChatUpdates---- \(data)")
+            let firstElement = data[0] as! String
+            if let data = firstElement.data(using: .utf8){
+                if let dictionary = try? JSONSerialization.jsonObject(with: data,options: []) as? [String:Any]{
+                    onReceive(dictionary)
+                }
+            }
+            
         })
     }
     func listenToRecievedMessages(onReceive:@escaping(String) -> Void){

@@ -24,9 +24,6 @@ class MessageListVC: BaseViewController {
         searchBar.setTextColor(color: .white)
         tableView.register(UINib(nibName: "ChatUserTVC", bundle: nil), forCellReuseIdentifier: "ChatUserTVC")
         viewModel.delegate = self
-        ChatSocketManager.shared.listenToChatUpdates {
-            self.viewModel.fetchChats()
-        }
         placeHolder.setTitleAndMessage(title: "No Chats found", message: "Search for other users and start the conversation")
         placeHolder.addCTAButton(with: "Search")
         placeHolder.buttonClicked = {
@@ -64,7 +61,7 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
         tabBarController?.tabBar.isHidden = true
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 70
     }
     
 }
