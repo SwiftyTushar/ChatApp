@@ -10,9 +10,13 @@ import Foundation
 class ChatsViewModel{
     var delegate: DefaultViewModelDelegate?
     var chats:[UserChat?] = []
-
+    private var totalNumberOfPendingMessages = 0
+    
+    var recievedNewMessage:((String) -> Void)?
+    
     init() {
         ChatSocketManager.shared.listenToChatUpdates { dictionary in
+            self.totalNumberOfPendingMessages += 1
             self.fetchChats(sortWith: dictionary["chatID"] as? String ?? "")
         }
     }
@@ -27,8 +31,8 @@ class ChatsViewModel{
                 if let response = response{
                     for chat in response.userChats{
                         var chatModel = chat
-                        chatModel?.date = CTAppearance.getDate(from: chat?.lastMessageTime ?? "")
-                        print("GETIME---- \(CTAppearance.convertFrom(from: .dateZ, to: .standardTime, date: chatModel?.lastMessageTime ?? ""))")
+                        print("misoqwer--- \(chat?.lastMessageTime ?? 0.0)")
+                        chatModel?.messageDate = Date(timeIntervalSince1970: (chat?.lastMessageTime ?? 0.0) / 1000.0)
                         for user in chat?.users ?? []{
                             if user.id != AuthManager.shared.getUserID(){
                                 chatModel?.userName = user.username
@@ -37,14 +41,11 @@ class ChatsViewModel{
                             }
                         }
                     }
-                    if !sortWith.isEmpty{
-                        for (index,chat) in (self?.chats ?? []).enumerated() {
-                            if sortWith == chat?.id{
-                                self?.chats.swapAt(0, index)
-                                break
-                            }
-                        }
-                    }
+                    self?.chats.sort(by: { firstChat, secondChat in
+                        let firstMS = firstChat?.lastMessageTime ?? 0.0
+                        let secondMS = secondChat?.lastMessageTime ?? 0.0
+                        return firstMS > secondMS
+                    })
                     self?.delegate?.success()
                 }
             }

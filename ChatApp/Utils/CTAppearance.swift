@@ -57,4 +57,7 @@ class CTAppearance{
         }
         return formatter.string(from: date)
     }
+    static func getDate(milliseconds:Double) -> Date{
+        return Date(timeIntervalSince1970: milliseconds/1000.0)
+    }
 }
