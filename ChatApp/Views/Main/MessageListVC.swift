@@ -29,6 +29,11 @@ class MessageListVC: BaseViewController {
         placeHolder.buttonClicked = {
             self.tabBarController?.selectedIndex = 1
         }
+//        viewModel.recievedNewMessage = { [weak self] pendingMessages in
+//            DispatchQueue.main.async {
+//                self?.navigationController?.tabBarItem.badgeValue = pendingMessages
+//            }
+//        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,6 +52,7 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
             let data = viewModel.chats[indexPath.row]
             cell.usernameLbl.text = data?.userName
             cell.lastMsgLbl.text = data?.lastText
+            cell.timeLbl.text = CTAppearance.getFormattedDates(date: data!.messageDate!)
             return cell
         }
         return UITableViewCell()
