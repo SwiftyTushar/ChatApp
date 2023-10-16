@@ -17,6 +17,7 @@ class MessageViewModel{
     init() {
         ChatSocketManager.shared.listenToRecievedMessages {[weak self] data in
             print("MessageViewModel.self------- \(data)")
+            
             self?.fetchMessages(chatID: data)
         }
     }
@@ -32,7 +33,20 @@ class MessageViewModel{
             }
         }
     }
-    
+    func fetchMessagesByChatID(chatID:String,otherUserID:String){
+        let request = FetchChatsRequest(chatID: chatID,currentUserID: AuthManager.shared.getUserID(), recipientID: otherUserID)
+        APICaller.shared.request(url: .fetchChatMessages, method: .post, body: request, responseType: ChatMessagesResponse.self) {[weak self] response, error in
+            if error != nil{
+                self?.delegate?.failure(msg: error ?? "")
+            } else {
+                if let response = response{
+                    self?.messages.removeAll()
+                    self?.messages = response.messages
+                    self?.filterMessages()
+                }
+            }
+        }
+    }
     func fetchMessages(chatID:String){
         APICaller.shared.request(
             url: .chats,

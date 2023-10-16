@@ -7,6 +7,17 @@
 
 import Foundation
 
+//MARK: FetchChatsRequest
+struct FetchChatsRequest: Encodable{
+    var chatID, currentUserID, recipientID: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case chatID, currentUserID
+        case recipientID = "recipientId"
+    }
+}
+
+//MARK: ChatResponse
 struct ChatResponse: Codable {
     let userChats: [UserChat?]
 }
@@ -22,9 +33,11 @@ struct UserChat: Codable {
     let v: Int?
     var userName,otherUserID:String?
     var messageDate:Date?
+    var isLatestMessageRead:Bool?
+    var lastMessageSentBy:String?
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case users, messages, latestMessage,userName,otherUserID,lastText,lastMessageTime
+        case users, messages, latestMessage,userName,otherUserID,lastText,lastMessageTime,isLatestMessageRead, lastMessageSentBy
 
         case v = "__v"
     }

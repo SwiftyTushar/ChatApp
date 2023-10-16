@@ -37,7 +37,7 @@ class SendMessageVC: UIViewController {
         tfMessage.autocorrectionType = .no
     }
     private func fetchPreviousMessages(){
-        viewModel.fetchMessages(chatID: chatID)
+        viewModel.fetchMessagesByChatID(chatID: chatID, otherUserID: userID)
     }
     @objc private func hideKeyboard(){
         tfMessage.resignFirstResponder()

@@ -47,17 +47,6 @@ class ChatSocketManager{
                     print("Recienefjewoiqjwojelse----")
                 }
             }
-//            if let data = firstElement.data(using: .utf8) {
-//                do {
-//                    // Deserialize the JSON data into a Swift dictionary
-//                    if let dictionary = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                        // Now, 'dictionary' is a Swift dictionary containing the parsed data
-//                        print(dictionary)
-//                    }
-//                } catch {
-//                    print("Error parsing JSON: \(error)")
-//                }
-//            }
             
             
             if let dataDict = data as? [[String:Any]]{

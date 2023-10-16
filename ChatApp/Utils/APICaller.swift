@@ -12,6 +12,7 @@ enum URLType:String{
     case signup = "auth/signup"
     case search = "api/users/search?query="
     case chats = "chats/"
+    case fetchChatMessages = "chats/fetch/messages"
     case message = "messages"
     case sendMessage = "message/send-message"
 }
