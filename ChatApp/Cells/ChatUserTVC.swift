@@ -12,6 +12,7 @@ class ChatUserTVC: UITableViewCell {
     @IBOutlet weak var lastMsgLbl:UILabel!
     @IBOutlet weak var profilePicImg:UIImageView!
     @IBOutlet weak var timeLbl:UILabel!
+    @IBOutlet weak var newMsgLbl:UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

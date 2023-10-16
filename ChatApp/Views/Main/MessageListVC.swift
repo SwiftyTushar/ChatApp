@@ -53,13 +53,20 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
             cell.usernameLbl.text = data?.userName
             cell.lastMsgLbl.text = data?.lastText
             cell.timeLbl.text = CTAppearance.getFormattedDates(date: data!.messageDate!)
+//            cell.newMsgLbl.isHidden = (data?.isLatestMessageRead == true && data?.lastMessageSentBy == AuthManager.shared.getUserID())
+            if data?.lastMessageSentBy == AuthManager.shared.getUserID(){
+                cell.newMsgLbl.isHidden = true
+            } else {
+                cell.newMsgLbl.isHidden = data?.isLatestMessageRead == true
+            }
             return cell
         }
         return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SendMessageVC") as! SendMessageVC
-        let data = viewModel.chats[indexPath.row]
+        var data = viewModel.chats[indexPath.row]
+        data?.isLatestMessageRead = true
         vc.chatID = data?.id ?? ""
         vc.userID = data?.otherUserID ?? ""
         vc.title = data?.userName ?? ""
@@ -67,7 +74,7 @@ extension MessageListVC:UITableViewDelegate,UITableViewDataSource{
         tabBarController?.tabBar.isHidden = true
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 90
     }
     
 }
