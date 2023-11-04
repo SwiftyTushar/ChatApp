@@ -20,8 +20,8 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         searchBar.placeholder = "Search..."
         searchBar.searchTextField.placeHolderColor = .lightGray
-        searchBar.searchTextField.leftView?.tintColor = .white
-        searchBar.searchTextField.textColor = .white
+        searchBar.searchTextField.leftView?.tintColor = .black
+        searchBar.searchTextField.textColor = .black
         tableView.register(UINib(nibName: "ChatUserTVC", bundle: nil), forCellReuseIdentifier: "ChatUserTVC")
         animationView.play()
         animationView.loopMode = .autoReverse
@@ -54,6 +54,7 @@ extension SearchViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = viewModel.users[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "ChatUserTVC") as? ChatUserTVC{
+            cell.lastMsgLbl.isHidden = true
             cell.timeLbl.isHidden = true
             cell.usernameLbl.text = user?.username
             return cell

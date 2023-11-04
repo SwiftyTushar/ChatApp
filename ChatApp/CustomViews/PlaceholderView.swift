@@ -34,7 +34,7 @@ class PlaceholderView: UIView {
             titleLbl.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLbl.heightAnchor.constraint(equalToConstant: 35)
         ])
-        titleLbl.textColor = .white
+        titleLbl.textColor = .black
         titleLbl.textAlignment = .center
         titleLbl.text = "Title"
         titleLbl.font = UIFont.boldSystemFont(ofSize: 22)
@@ -66,8 +66,9 @@ class PlaceholderView: UIView {
             actionBtn.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
         actionBtn.layer.cornerRadius = 20
-        actionBtn.backgroundColor = .systemGray6.withAlphaComponent(0.2)
+        actionBtn.backgroundColor = .systemGray6
         actionBtn.setTitle("   \(title)   ", for: .normal)
+        actionBtn.setTitleColor(.systemBlue, for: .normal)
         actionBtn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
     }
     @objc private func buttonAction(){

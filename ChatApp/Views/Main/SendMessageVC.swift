@@ -21,7 +21,7 @@ class SendMessageVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tfMessage.textColor = .white
+        tfMessage.textColor = .black
         tableView.register(UINib(nibName: "MessageSentTVC", bundle: nil), forCellReuseIdentifier: "MessageSentTVC")
         tableView.register(UINib(nibName: "MessageRecievedTVC", bundle: nil), forCellReuseIdentifier: "MessageRecievedTVC")
         sendMessageView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
@@ -35,6 +35,13 @@ class SendMessageVC: UIViewController {
         viewModel.delegate = self
         fetchPreviousMessages()
         tfMessage.autocorrectionType = .no
+        tableView.backgroundColor = .white
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.tintColor = UIColor.black // Change the color of the back button arrow
+
+            // Change the color of the back button title
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.blue]
+        }
     }
     private func fetchPreviousMessages(){
         viewModel.fetchMessagesByChatID(chatID: chatID, otherUserID: userID)

@@ -34,7 +34,7 @@ class MessageDateView: UIView {
         dateLbl.textAlignment = .center
         dateView.backgroundColor = .systemGray5.withAlphaComponent(0.5)
         dateView.layer.cornerRadius = 8
-        dateLbl.textColor = .white
+        dateLbl.textColor = .black
     }
     func setDate(date:Date){
         dateLbl.text = CTAppearance.getFormattedDates(date: date)

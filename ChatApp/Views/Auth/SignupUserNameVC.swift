@@ -24,8 +24,16 @@ class SignupUserNameVC: BaseViewController {
         title = ""
         profilePicImg.isUserInteractionEnabled = true
         profilePicImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onProfileClicked)))
+        profilePicImg.layer.borderColor = UIColor.black.cgColor
+        profilePicImg.layer.borderWidth = 1
         imgPicker.delegate = self
         viewModel.delegate = self
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.tintColor = UIColor.black // Change the color of the back button arrow
+
+            // Change the color of the back button title
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.blue]
+        }
     }
     @objc func onProfileClicked(){
         imgPicker.sourceType = .photoLibrary

@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Token ---- \(AuthManager.shared.getToken())")
         print("UserID---- \(AuthManager.shared.getUserID())")
         ChatSocketManager.shared.establishSocketConnection()
-        
         IQKeyboardManager.shared().isEnabled = false
+        UITextField.appearance().tintColor = .black
         let navigationBarAppearance = UINavigationBar.appearance()
            navigationBarAppearance.barTintColor = UIColor.white // Light mode background color
            navigationBarAppearance.tintColor = UIColor.white // Light mode text color
@@ -27,9 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            if #available(iOS 13.0, *) {
                // Customize for dark mode (iOS 13 and later)
                let darkModeNavigationBarAppearance = UINavigationBarAppearance()
-               darkModeNavigationBarAppearance.backgroundColor = UIColor.black // Dark mode background color
-               darkModeNavigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Dark mode text color
-               
+               darkModeNavigationBarAppearance.backgroundColor = UIColor.systemGray6 // Dark mode background color
+               darkModeNavigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black] // Dark mode text color
                navigationBarAppearance.standardAppearance = darkModeNavigationBarAppearance
                navigationBarAppearance.scrollEdgeAppearance = darkModeNavigationBarAppearance
            }
