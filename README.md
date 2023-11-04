@@ -40,7 +40,7 @@ Follow these steps to set up and run the Chatee app, which showcases the use of 
 ## Screenshots and UI Gifs
 
 ### Real-time Chat with Socket.IO
-![Real-time Chat](/gifs/real-time-chat.gif)
+![Real-time Chat](https://drive.google.com/file/d/1NzbkLvrBvBEdcFBuQ32LqAR8PO0xXA1P/view?usp=share_link)
 
 ## Contributing
 
