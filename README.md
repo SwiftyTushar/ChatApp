@@ -23,7 +23,7 @@ Follow these steps to set up and run the Chatee app, which showcases the use of 
 1. Clone the Chatee repository:
 
    ```bash
-   git clone https://github.com/yourusername/chatee.git
+   git clone https://github.com/SwiftyTushar/ChatApp.git
    ```
 
 2. Open the project in Xcode:
